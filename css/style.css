@@ -1,0 +1,577 @@
+/* style.css */
+/* ===========================  共通  =========================== */
+
+body {
+  padding: 0px;
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+/* =========================== Splash Screen =========================== */
+
+/* 画面全体を覆う白背景 */
+.splash {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+
+  /* ロゴを中央配置 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* すべての要素より前に出す */
+  z-index: 50;
+
+  /* フェードアウト用 */
+  transition: opacity 1s ease;
+}
+
+/* JSで is-hidden が付いたら消える */
+.splash.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ロゴ落下アニメーション */
+.splash-logo {
+  width: 300px;
+  animation: naturalDrop 1.5s forwards;
+}
+
+/* 落ちてバウンドして止まる */
+@keyframes naturalDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-550px);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(140px);
+  }
+  70% {
+    transform: translateY(-110px);
+  }
+  82% {
+    transform: translateY(20px);
+  }
+  90% {
+    transform: translateY(-10px);
+  }
+  96% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* =========================== header =========================== */
+
+/* ロゴ左・ハンバーガー右 */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 47; /* 動画より前 */
+}
+
+/* =========================== 全体幅制御 =========================== */
+
+.site-wrapper {
+  max-width: 1200px; /* ← ここで止まる */
+  margin: 0 auto; /* 中央寄せ */
+  position: relative; /* fixed要素の基準にも使える */
+}
+
+/* ★ ここが1200pxで止まる本体 */
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* ヘッダーロゴサイズ */
+.headerlogo {
+  width: 180px;
+}
+
+/* 見えないテキスト（アクセシビリティ） */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* =========================== ハンバーガー =========================== */
+
+.hamburger {
+  width: 30px;
+  height: 27px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: none;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+
+  /* SPメニューより前に出す */
+  position: relative;
+  z-index: 49;
+}
+
+/* 3本線 */
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: #000000bb;
+  border-radius: 5px;
+
+  /* 形が変わるアニメーション */
+  transition: transform 0.4s ease, opacity 0.3s ease, background 0.3s ease;
+}
+
+/* ===========================  main  =========================== */
+
+/* =========================== 動画エリア =========================== */
+
+/* メインビジュアル全体*/
+.hero {
+  position: relative; /* 中の要素を absolute で配置するため */
+  width: 100%; /* 画面幅100% */
+  height: 100vh; /* 画面の高さ100%（スクロールなし） */
+  overflow: hidden; /* 画面外にはみ出たものを隠す */
+  z-index: 0;
+}
+
+/* 各動画の入れ物 */
+.timelapse {
+  position: absolute; /* 全部を同じ場所に重ねる */
+  height: 100vh;
+  inset: 0; /* top/right/bottom/left = 0 と同じ */
+  opacity: 0; /* 最初は全部見えない */
+  transition: opacity 4.5s ease; /* フェード切り替え */
+}
+
+/* 表示中のタイムラプス */
+.timelapse.is-active {
+  opacity: 1; /* 表示中は見える */
+}
+
+/* videoを画面いっぱいにする */
+.timelapse video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画面比率を保ってトリミング */
+
+  z-index: 0;
+  pointer-events: none; /* ← これ超重要 */
+}
+
+/* レスポンシブ切り替え */
+.pc-only {
+  display: none;
+}
+
+.sp-only {
+  display: block;
+}
+
+/* =========================== ヒーローテキスト（動画の上） =========================== */
+
+/*
+  hero-text-layer
+  ・動画の上に文字を乗せるための「透明なレイヤー」
+  ・画面全体を覆う
+*/
+.hero-text-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* 動画（z-index:0）より前に出す */
+  pointer-events: none; /* 文字の上をタップできるように */
+}
+
+/*
+  hero-text
+  ・1シーン分の文字
+  ・最初は非表示
+  ・JSで is-active が付いた時だけ表示
+*/
+.hero-text {
+  position: absolute;
+  color: #fff;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 3), 0 0 2px rgba(0, 0, 0, 1);
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+
+  opacity: 0; /* ← 初期状態では見せない */
+  transform: translateY(20px); /* ← 少し下から */
+  transition: opacity 1s ease, transform 1.2s ease;
+  /*
+    ↑ ここが「ディゾルブ時間」
+    1.2s を変えると
+    → 文字のフェード速度が変わる
+  */
+}
+
+/*
+  表示中の文字
+  ・JSが is-active を付ける
+*/
+.hero-text.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================== ヒーローテキストの位置指定 =========================== */
+/*
+  ↓ ここを触ると
+  「動画ごとの文字位置」が変わる
+*/
+
+.text-space {
+  top: 50%;
+  left: 20%;
+}
+
+.text-nail {
+  top: 20%;
+  left: 28%;
+  /* transform: translateX(-50%) translateY(20px); */
+}
+
+.text-talk {
+  top: 65%;
+  right: 23%;
+}
+
+.text-Team {
+  top: 20%;
+  left: 10%;
+}
+
+.text-salon {
+  top: 48%;
+  left: 10%;
+}
+
+/* =========================== CTAバナー・アイコン =========================== */
+
+/* =========================== CTAバナー（共通） =========================== */
+/*
+  banner
+  ・動画の上に固定表示
+  ・初期は小さめ＆半透明
+  ・hoverで存在感を出す
+*/
+.banner-icon-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.banner-icon-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* ← 子要素の基準点 */
+}
+
+.banner {
+  position: absolute;
+  bottom: 10px;
+  width: 110px; /* Canvaで作った実寸を基準 */
+  height: auto;
+
+  opacity: 0.7; /* 初期は控えめ */
+  border-radius: 16px;
+  cursor: pointer;
+
+  transform: scale(0.9); /* 少し小さく */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  z-index: 3; /* テキストより前 */
+}
+
+/* 中の画像をきれいに表示 */
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
+}
+
+/* hover時：主張する */
+.banner:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===========================  左右の位置指定  =========================== */
+
+.banner-job {
+  right: 2%;
+  bottom: 85px;
+}
+
+.banner-reserve {
+  right: 2%;
+}
+
+/* =========================== フッター誘導アイコン =========================== */
+/*
+  hero-icon-area
+  ・フッターがあることを示す
+  ・視線を下へ誘導
+*/
+
+.hero-icon-area {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+  cursor: pointer;
+  pointer-events: auto; /* ← もしくは行ごと削除 */
+}
+
+/* 山形アイコン */
+.arrow {
+  font-size: 8px;
+  color: #fff;
+  opacity: 0.8;
+
+  animation: arrowMove 1.6s ease-in-out infinite;
+}
+
+/* 少しずつズラす */
+.arrow:nth-child(1) {
+  animation-delay: 0s;
+}
+.arrow:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.arrow:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* tap文字 */
+.tap-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  color: #fff;
+  opacity: 0.8;
+}
+
+/* 上に流れるアニメーション */
+@keyframes arrowMove {
+  0% {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+}
+
+/* ===========================  footer  =========================== */
+
+/* ===========================  ハンバーガーメニュー押したときのSP menu  =========================== */
+
+.sp-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.884);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 最初は画面外（上） */
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+
+  /* ハンバーガー(×)より後ろ */
+  z-index: 48;
+}
+
+/* JSで is-open が付いたら画面内へ */
+.sp-menu.is-open {
+  transform: translateY(0);
+}
+
+/* メニューリスト */
+.sp-menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+/* 各メニュー間隔 */
+.sp-menu li {
+  margin: 24px 0;
+}
+
+/* メニュー文字 */
+.sp-menu a {
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+
+  /* ホバー時アニメーション */
+  transition: color 0.4s ease, letter-spacing 0.4s ease;
+}
+
+/* ポインター乗った瞬間に変化 */
+.sp-menu a:hover {
+  color: #535353;
+  letter-spacing: 0.25em;
+}
+
+/* =========================== ハンバーガー → 戻るボタン =========================== */
+
+/* 開いた状態は白 */
+.hamburger.is-open span {
+  background: #fff;
+}
+
+/* 上の線：斜め */
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(11px) rotate(-45deg);
+}
+
+/* 真ん中消す */
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+/* 下の線：斜め */
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-11px) rotate(45deg);
+}
+
+/* =========================== レスポンシブ =========================== */
+
+/* ===== タブレット ===== */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* バナー：スマホより少し大きい */
+
+  /* =========================== CTAバナー・アイコン =========================== */
+
+  /* =========================== CTAバナー（共通） =========================== */
+  .banner {
+    width: 140px;
+    opacity: 0.7;
+  }
+
+  /* ===========================  左右の位置指定  =========================== */
+
+  .banner-job {
+
+    bottom: 105px;
+  }
+
+
+
+  /* =========================== フッター誘導アイコン =========================== */
+  .arrow {
+    font-size: 9px;
+  }
+
+  .tap-text {
+    font-size: 22px;
+  }
+}
+
+/* ===== PC ===== */
+
+@media screen and (min-width: 1024px) {
+  /* =========================== 共通 =========================== */
+
+  /* =========================== Splash Screen =========================== */
+
+  /* =========================== header =========================== */
+
+  /* =========================== ハンバーガー =========================== */
+
+  /* =========================== main =========================== */
+
+  /* =========================== 動画エリア =========================== */
+
+  .pc-only {
+    display: block;
+  }
+
+  .sp-only {
+    display: none;
+  }
+  /* =========================== ヒーローテキスト（動画の上） =========================== */
+
+  .hero-text {
+    font-size: 1.8rem;
+  }
+
+  /* =========================== 文字の位置指定 =========================== */
+
+  /* =========================== CTAバナー・アイコン =========================== */
+
+  /* =========================== CTAバナー（共通） =========================== */
+
+  .banner {
+    width: 180px;
+    bottom: 16px;
+    opacity: 0.7;
+  }
+
+/* ===========================  左右の位置指定  =========================== */
+
+.banner-job {
+  bottom: 135px;
+}
+
+  /* =========================== フッター誘導アイコン =========================== */
+  /*
+  hero-icon-area
+  ・フッターがあることを示す
+  ・視線を下へ誘導
+*/
+
+  /* 山形アイコン */
+  .arrow {
+    font-size: 10px;
+  }
+
+  /* tap文字 */
+  .tap-text {
+    font-size: 25px;
+  }
+  /* =========================== footer =========================== */
+
+  /* =========================== ハンバーガーメニュー押したときのSP menu =========================== */
+
+  /* =========================== ハンバーガー → 戻るボタン =========================== */
+}

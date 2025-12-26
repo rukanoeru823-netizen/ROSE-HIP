@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- 文字コード -->
+    <meta charset="UTF-8" />
+
+    <!-- タイトル -->
+    <title>ROSE HIP</title>
+
+    <!-- レスポンシブ対応（これ無いとスマホで崩れる） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- リセットCSS（ブラウザ差を消す） -->
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <!-- メインCSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- =========================== max-width指定の為の親要素 =========================== -->
+    <div class="site-wrapper">
+      
+      <!-- =========================== Splash Screen =========================== -->
+      <!-- ページ読み込み直後に表示される白背景＋ロゴ -->
+      <div class="splash">
+        <!-- 落下アニメーションするロゴ -->
+        <img class="splash-logo" src="images/logo.svg" alt="ROSE HIP" />
+      </div>
+
+      <!-- =========================== header =========================== -->
+      <header>
+        <div class="header-inner">
+          <!-- ---------- ロゴ（常に左） ---------- -->
+          <a href="/">
+            <img class="headerlogo" src="images/logo.svg" alt="ROSE HIP logo" />
+            <!-- 画面には出ないが読み上げ用 -->
+            <span class="sr-only">ROSE HIP</span>
+          </a>
+
+          <!-- ---------- ハンバーガーボタン ---------- -->
+          <!-- JSがここをクリック監視する -->
+          <button class="hamburger" aria-label="メニューを開く">
+            <!-- この3本がCSSで×（戻るボタン）に変形する -->
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- ---------- SPメニュー（黒背景で降りてくる） ---------- -->
+          <!-- 最初は画面外に隠れている -->
+          <nav class="sp-menu">
+            <ul class="headermenu">
+              <li><a href="#">Concept</a></li>
+              <li><a href="#">Menu</a></li>
+              <li><a href="#">Staff</a></li>
+              <li><a href="#">Recruit</a></li>
+              <li><a href="#">Access</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- =========================== main =========================== -->
+
+      <!-- ---------- Screen幅の背景動画エリア ---------- -->
+
+      <main class="hero">
+        <!--
+    timelapse：1つの背景動画ユニット
+    ・このdivが「1画面分の背景」になる
+    ・is-active が付いているものだけ表示される
+  -->
+
+        <div class="timelapse is-active">
+          <!--
+      video：
+      ・autoplay : 自動再生
+      ・muted : 無音（これ無いと自動再生されない）
+      ・loop : ループ再生
+      ・playsinline : スマホで全画面にならない
+    -->
+
+          <!-- スマホ用動画 -->
+          <video
+            class="hero-video sp-only"
+            src="videos/background-sp.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+          ></video>
+
+          <!-- PC用動画 -->
+          <video
+            class="hero-video pc-only"
+            src="videos/background-pc.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+          ></video>
+
+          <!-- ---------- テキストレイヤー ---------- -->
+          <!--
+      ・背景動画が切り替わるたびに文字が変わる
+    -->
+          <div class="hero-text-layer">
+            <!-- 背景画面の文字 -->
+            <div class="hero-text text-1 text-space">落ち着いた空間と</div>
+            <div class="hero-text text-2 text-nail">洗練された技術で</div>
+            <div class="hero-text text-3 text-talk">新しい自分へ</div>
+            <div class="hero-text text-4 text-Team">スタッフ一同</div>
+            <div class="hero-text text-5 text-salon">
+              ROSE HIPで<br />お待ちしております。
+            </div>
+          </div>
+
+          <!-- ---------- バナー・アイコンエリア ---------- -->
+          <div class="banner-icon-area">
+            <!-- 1200pxで止めるインナー -->
+            <div class="banner-icon-inner">
+              <!--
+          ・Canva制作PNG（300×200）
+          ・初期：少し小さく・透過あり
+          ・hover：拡大＋不透明
+        -->
+
+              <a href="#" class="banner banner-job">
+                <img src="images/banner-job.png" alt="求人情報はこちら" />
+              </a>
+
+              <!-- ---------- 予約バナー（右下） ---------- -->
+              <!--
+          ・造りは求人バナーと共通
+          ・位置のみ右下
+        -->
+              <a href="#" class="banner banner-reserve">
+                <img src="images/banner-reserve.png" alt="ご予約はこちら" />
+              </a>
+
+              <!-- ---------- フッター誘導アイコン（中央下） ---------- -->
+              <!--
+          ・山形アイコンを縦に3つ
+          ・上方向に動いて「下に何かある」ことを示す
+        -->
+              <div class="hero-icon-area">
+                <div class="arrow">▲</div>
+                <div class="arrow">▲</div>
+                <div class="arrow">▲</div>
+                <span class="tap-text">tap</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- =========================== footer =========================== -->
+      <footer></footer>
+
+      <!-- JSは最後に読み込む（DOM生成後じゃないと動かない） -->
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>
