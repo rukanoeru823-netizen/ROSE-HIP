@@ -1,0 +1,186 @@
+/* top.css */
+
+/* ===========================  main  =========================== */
+
+/* =========================== 動画エリア =========================== */
+/*
+  ⚠️ position / z-index 注意
+*/
+
+/* メインビジュアル全体*/
+.hero {
+  position: relative; /* ⚠️中の要素を absolute で配置するため */
+  width: 100%; /* 画面幅100% */
+  height: 100vh; /* 画面の高さ100%（スクロールなし） */
+  overflow: hidden; /* 画面外にはみ出たものを隠す */
+  z-index: 0; /* ⚠️ z-index基準点 */
+}
+
+/* ヒーロー背景動画の入れ物 */
+.hero-bg {
+  position: absolute; /* 全部を同じ場所に重ねる */
+  height: 100vh;
+  inset: 0; /* top/right/bottom/left = 0 と同じ */
+  opacity: 0; /* 最初は全部見えない */
+  transition: opacity 4.5s ease; /* フェード速度 */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 表示中のタイムラプス */
+.hero-bg.is-active {
+  opacity: 1; /* 表示中は見える */
+}
+
+/* videoを画面いっぱいにする */
+.hero-bg video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画面比率を保ってトリミング */
+
+  z-index: 0;
+  pointer-events: none; /* ⚠️ 超重要 */
+}
+
+/* レスポンシブ切り替え */
+.pc-only {
+  display: none; /* pc用動画を見えないようにする */
+}
+
+.sp-only {
+  display: block; /* sp用動画を見えるようにする */
+}
+
+/* =========================== ヒーローテキスト（動画の上） =========================== */
+
+/*
+  ⚠️ JS連動（is-active）
+  hero-text-layer
+  ・動画の上に文字を乗せるための「透明なレイヤー」
+  ・画面全体を覆う
+*/
+.hero-text-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* 動画（z-index:0）より前に出す */
+  pointer-events: none; /* 文字の上をタップできるように */
+}
+
+/*
+  hero-text
+  ・1シーン分の文字
+  ・最初は非表示
+  ・JSで is-active が付いた時だけ表示
+*/
+.hero-text {
+  position: absolute;
+  color: #fff;
+  text-shadow:
+    0 5px 10px rgba(0, 0, 0, 3),
+    0 0 2px rgba(0, 0, 0, 1);
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+
+  opacity: 0; /* ← 初期状態では見せない */
+  transform: translateY(20px); /* ← 少し下から */
+  transition:
+    opacity 1s ease,
+    transform 1.2s ease;
+  /*
+    ↑ ここが「ディゾルブ時間」
+    1.2s を変えると
+    → 文字のフェード速度が変わる
+  */
+}
+
+/*
+  表示中の文字
+  ・JSが is-active を付ける
+*/
+.hero-text.is-active {
+  opacity: 1; /*⚠️ JS連動*/
+  transform: translateY(0); /*⚠️ JS連動*/
+}
+
+/* =========================== ヒーローテキストの位置指定 =========================== */
+/*
+  ↓ ここを触ると
+  「動画ごとの文字位置」が変わる
+*/
+
+.text-space {
+  top: 50%;
+  left: 20%;
+}
+
+.text-nail {
+  top: 20%;
+  left: 28%;
+  /* transform: translateX(-50%) translateY(20px); */
+}
+
+.text-talk {
+  top: 65%;
+  right: 23%;
+}
+
+.text-Team {
+  top: 20%;
+  left: 10%;
+}
+
+.text-salon {
+  top: 48%;
+  left: 10%;
+}
+
+/* =========================== レスポンシブ =========================== */
+
+/* ==================== タブレット ==================== */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* ======
+  　　main
+  　　====== */
+
+  /* ===== ヒーローテキスト（動画の上） ===== */
+
+  .hero-text {
+    font-size: 2.2rem;
+  }
+}
+
+/* ==================== PC ==================== */
+
+@media screen and (min-width: 1024px) {
+  /* ======
+  　　main
+  　　====== */
+
+  /* ===== 動画エリア ===== */
+
+  /* レスポンシブ切り替え() */
+  .pc-only {
+    display: block; /* pc用動画を見えるようにする */
+  }
+
+  .sp-only {
+    display: none; /* sp用動画を見えなくする */
+  }
+
+  /* ===== ヒーローテキスト（動画の上） ===== */
+
+  /*
+  hero-text
+  ・1シーン分の文字
+  ・最初は非表示
+  ・JSで is-active が付いた時だけ表示
+*/
+
+  /* 背景動画上の文字サイズ */
+  .hero-text {
+    font-size: 2.3rem;
+  }
+}

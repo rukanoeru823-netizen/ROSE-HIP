@@ -1,0 +1,39 @@
+/* ===========================  共通  =========================== */
+
+/*
+  ・全ページ共通のベース設定
+  ・フォント / 文字間隔 / 表示制御
+  ⚠️ 基本触らない
+*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 0;
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif; /* 全体フォント設計 */
+  font-weight: 400; /* 文字の基本ウェイト */
+  letter-spacing: 0.03em; /* 全体の字間 */
+}
+
+/* PCナビ（初期は非表示） */
+.pc-nav {
+  display: none;
+}
+
+
+
+
+/* ===========================  レスポンシブ  =========================== */
+
+/* ==================== PC ==================== */
+@media screen and (min-width: 1024px) {
+
+  /* SPメニューを無効化 */
+  .sp-menu {
+    display: none;
+  }
+  
+}

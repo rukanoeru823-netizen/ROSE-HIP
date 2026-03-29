@@ -1,0 +1,146 @@
+/* =========================== menu ページ専用 =========================== */
+
+/* 背景画像 */
+.sub-main-inner::before {
+  background-image: url("../images/menu-bg.jpg");
+  background-size: cover;
+  background-position: center top 50%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------- menu list base ---------- */
+
+.menu-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  gap: 5px;
+
+  font-size: 14px;
+}
+
+.menu-list:not(:first-child) {
+  border-top: 1px solid #333;
+}
+
+/* ---------- menu name ---------- */
+
+.menu-name p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.sub-note {
+  color: #666;
+}
+
+/* ---------- single line info ---------- */
+
+.menu-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.menu-time {
+  font-size: 13px;
+  color: #555;
+}
+
+.menu-price {
+  font-weight: 600;
+}
+
+.menu-note p {
+  font-size: 13px;
+  color: red;
+}
+
+/* ---------- column info (many prices) ---------- */
+
+.menu-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-info-row:not(:first-child) {
+  border-top: 1px solid #a8a8a8;
+}
+
+.menu-main {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.menu-time-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-price {
+  font-weight: 600;
+}
+
+.menu-sub {
+  min-width: 6em;
+}
+
+.menu-label {
+  color: #666;
+}
+
+.menu-label.discount {
+  color: #f3be4b;
+}
+
+
+/* =========================== レスポンシブ =========================== */
+
+/* ==================== タブレット ==================== */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+  .menu-list {
+    font-size: 19px;
+  }
+
+  .menu-note p {
+    font-size: 15px;
+  }
+
+  .menu-time {
+    font-size: 15px;
+  }
+
+
+}
+
+
+/* ==================== PC ==================== */
+@media screen and (min-width: 1024px) {
+
+  .menu-list {
+    font-size: 16px;
+  }
+
+  .menu-note p {
+    font-size: 13px;
+  }
+
+  .menu-time {
+    font-size: 15px;
+  }
+
+}

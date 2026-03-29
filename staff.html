@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- =========================== 基本設定 =========================== -->
+
+    <!-- 文字コード -->
+    <meta charset="UTF-8" />
+
+    <!-- タイトル（ブラウザタブ・検索結果用） -->
+    <title>ROSE HIP</title>
+
+    <!-- favicon(ファビコン) -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- レスポンシブ対応（これ無いとスマホで崩れる） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- リセットCSS（ブラウザ差を消す） -->
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <!-- 全ページ共通のスタイル -->
+    <link rel="stylesheet" href="css/common.css" />
+
+    <!-- サイト全体の構造スタイル -->
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <!-- トップページ専用スタイル -->
+    <link rel="stylesheet" href="css/staff.css" />
+  </head>
+
+  <body>
+    <!-- =========================== Common header =========================== -->
+    <!--
+        ・常時固定表示
+        ・ロゴ（左）＋ハンバーガー（右）
+        ・SPメニューのトリガー
+      -->
+
+    <header>
+      <div class="header-inner">
+        <!-- [Header] Logo -->
+        <a href="index.html">
+          <img class="headerlogo" src="images/logo.svg" alt="ROSE HIP logo" />
+          <!-- 画面には出ないが読み上げ用 -->
+          <span class="sr-only">ROSE HIP</span>
+        </a>
+
+        <!-- [Header] Hamburger Button -->
+        <!--
+            ・JSがクリックを監視
+            ・is-open で × に変形
+          -->
+        <button class="hamburger" aria-label="メニューを開く">
+          <!-- この3本がCSSで×（戻るボタン）に変形する -->
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- ---------- SPメニュー（全画面オーバーレイ） ---------- -->
+        <!--
+            ・初期状態は画面外（上）
+            ・is-open が付くと表示
+          -->
+
+        <nav class="sp-menu">
+          <ul class="headermenu">
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="staff.html">スタッフ</a></li>
+            <li><a href="job.html">採用情報</a></li>
+            <li><a href="concept.html">店舗情報</a></li>
+            <li><a href="contact.html">ご予約</a></li>
+          </ul>
+        </nav>
+
+        <!-- ---------- PCメニュー ---------- -->
+
+        <nav class="pc-nav">
+          <ul>
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="staff.html">スタッフ</a></li>
+            <li><a href="job.html">採用情報</a></li>
+            <li><a href="concept.html">店舗情報</a></li>
+            <li><a href="contact.html">ご予約</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =========================== main =========================== -->
+    <main class="page-sub page-menu">
+      <div class="sub-main-inner">
+        <!-- ---------- sub Hero ---------- -->
+        <section class="sub-hero">
+          <div class="sub-catch">
+            <p class="sub-title">【Staff】</p>
+            <p class="sub-title sub-title-sub">目次</p>
+            <ul class="sub-nav">
+              <li>
+                <a href="#stylist">
+                  <span class="en">Stylist</span>
+                  <span class="jp">～スタイリスト～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#nailist">
+                  <span class="en">Nailist</span>
+                  <span class="jp">～ネイリスト～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#eyelist">
+                  <span class="en">Eyelist</span>
+                  <span class="jp">～アイリスト～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#Training-Program-staff">
+                  <span class="en">Training Program</span>
+                  <span class="jp">～新人教育プログラム～</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ---------- sub-section ---------- -->
+        <div class="sub-area">
+          <div class="sub-area-inner">
+            <!-- Stylistエリア -->
+            <section class="sub-section" id="stylist">
+              <div class="section-title">
+                <h3>Stylist</h3>
+                <p>～スタイリスト～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="staff-card">
+                  <div class="staff-image">
+                    <img src="images/maeda.jpg" alt="スタイリスト サンプル" />
+                  </div>
+
+                  <div class="staff-info">
+                    <div class="staff-item">
+                      <h4>名前</h4>
+                      <p>前田 隆憲(マエダ タカノリ)</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>役職</h4>
+                      <p>代表兼スタイリスト｜30年以上</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>得意なスタイル</h4>
+                      <p>
+                        1.カッコいいショート、ロング<br />
+                        2.ふんわり可愛いボブ<br />
+                        3.レイヤースタイル
+                      </p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>一言コメント</h4>
+                      <p>
+                        お客様に長く愛され、スタッフが誇りを持てるサロンであり続けたいと思っています。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="staff-card">
+                  <div class="staff-image">
+                    <img src="images/nonaka.jpg" alt="スタイリスト サンプル" />
+                  </div>
+
+                  <div class="staff-info">
+                    <div class="staff-item">
+                      <h4>名前</h4>
+                      <p>野中 一樹(ノナカ カズキ)</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>役職</h4>
+                      <p>店長兼スタイリスト｜15年以上</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>得意なスタイル</h4>
+                      <p>
+                        1.ショートボブ<br />
+                        2.白髪ぼかしハイライト
+                      </p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>一言コメント</h4>
+                      <p>
+                        スタッフと協力しながら、心地よい空間と確かな技術をお届けできるよう努めています。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="staff-card">
+                  <div class="staff-image">
+                    <img src="images/inoue.jpg" alt="スタイリスト サンプル" />
+                  </div>
+
+                  <div class="staff-info">
+                    <div class="staff-item">
+                      <h4>名前</h4>
+                      <p>井上 千絵(イノウエ チエ)</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>役職</h4>
+                      <p>スタイリスト・アシスタント｜25年以上</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>得意なスタイル</h4>
+                      <p>
+                        1.似合わせカラー診断<br />
+                        2.カウンセリング<br />
+                      </p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>一言コメント</h4>
+                      <p>
+                        長年この仕事を続けてきたからこそ、美容の楽しさも厳しさも知っています。
+                        本気で成長したい方と、同じ現場で切磋琢磨できたら嬉しいです。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="staff-card">
+                  <div class="staff-image">
+                    <img
+                      src="images/yasumori.jpg"
+                      alt="スタイリスト サンプル"
+                    />
+                  </div>
+
+                  <div class="staff-info">
+                    <div class="staff-item">
+                      <h4>名前</h4>
+                      <p>安森 日向(ヤスモリ ヒュウガ)</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>役職</h4>
+                      <p>アシスタント｜5年目</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>得意なスタイル</h4>
+                      <p>1.ヘッドスパ</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>一言コメント</h4>
+                      <p>
+                        先輩方の技術を学びながら、自分自身も一人前のスタイリストを目指して努力しています。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="staff-card">
+                  <div class="staff-image">
+                    <img src="images/kamito.jpg" alt="スタイリスト サンプル" />
+                  </div>
+
+                  <div class="staff-info">
+                    <div class="staff-item">
+                      <h4>名前</h4>
+                      <p>上戸 三緒(カミト ミオ)</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>役職</h4>
+                      <p>スタイリスト｜3年目</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>得意なスタイル</h4>
+                      <p>
+                        1.フェミニンボブ<br />
+                        2.顔回りレイヤー<br />
+                        3.似合わせカラー
+                      </p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>一言コメント</h4>
+                      <p>
+                        スタッフ同士の距離が近く、分からないこともすぐに聞ける環境です。
+                        一緒に楽しく成長できる仲間が増えたら嬉しいです。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Nailistエリア -->
+            <section class="sub-section" id="nailist">
+              <div class="section-title">
+                <h3>Nailist</h3>
+                <p>～ネイリスト～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="staff-card">
+                  <div class="staff-image">
+                    <img
+                      src="images/mizohata.jpg"
+                      alt="スタイリスト サンプル"
+                    />
+                  </div>
+
+                  <div class="staff-info">
+                    <div class="staff-item">
+                      <h4>名前</h4>
+                      <p>溝畠 紀子(ミゾハタ ノリコ)</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>役職</h4>
+                      <p>ネイリスト｜17年目</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>得意なデザイン</h4>
+                      <p>
+                        1.肌なじみカラー<br />
+                        2.美フォルム作り<br />
+                        3.ハンド・フットケア
+                      </p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>一言コメント</h4>
+                      <p>
+                        17年の経験を活かし、お客様一人ひとりに似合う上品なデザインをご提案いたします。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="staff-card">
+                  <div class="staff-image">
+                    <img
+                      src="images/nakamitu.jpg"
+                      alt="スタイリスト サンプル"
+                    />
+                  </div>
+
+                  <div class="staff-info">
+                    <div class="staff-item">
+                      <h4>名前</h4>
+                      <p>中満 かえで(ナカミツ カエデ)</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>役職</h4>
+                      <p>ネイリスト｜5年目</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>得意なデザイン</h4>
+                      <p>
+                        1.手書きアート<br />
+                        2.3Dアート
+                      </p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>一言コメント</h4>
+                      <p>
+                        楽しい仲間たちに囲まれて、毎日充実しながら働いています。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Eyelistエリア -->
+            <section class="sub-section" id="eyelist">
+              <div class="section-title">
+                <h3>Eyelist</h3>
+                <p>～アイリスト～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="staff-card">
+                  <div class="staff-image">
+                    <img src="images/tuchiya.jpg" alt="スタイリスト サンプル" />
+                  </div>
+
+                  <div class="staff-info">
+                    <div class="staff-item">
+                      <h4>名前</h4>
+                      <p>土谷 裕子(ツチヤ ユウコ)</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>役職</h4>
+                      <p>アイリスト｜17年目</p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>得意なデザイン</h4>
+                      <p>
+                        1.ナチュラルデザイン<br />
+                        2.目元に合わせたデザイン<br />
+                        3.キュートデザイン
+                      </p>
+                    </div>
+
+                    <div class="staff-item">
+                      <h4>一言コメント</h4>
+                      <p>
+                        目元はお顔の印象を大きく左右する大切な部分。丁寧なカウンセリングと施術を心がけています。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 新人教育プログラムエリア -->
+            <section class="sub-section" id="Training-Program-staff">
+              <div class="section-title">
+                <h3>Training Program</h3>
+                <p>～新人教育プログラム～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="training-block">
+                  <!-- プログラム① -->
+                  <div class="training-item">
+                    <h4>【新卒の方も安心なカリキュラム】</h4>
+
+                    <div class="training-content">
+                      <div class="training-image">
+                        <img
+                          src="images/stylist1.jpg"
+                          alt="基礎から学べるステップ制"
+                        />
+                      </div>
+
+                      <div class="training-text">
+                        <p>
+                          ROSE HIPでは段階式の教育カリキュラムを導入。<br />
+                          シャンプーや接客などの基礎から、カラー・カット・髪質改善まで一つずつ
+                          技術を習得していきます。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- プログラム② -->
+                  <div class="training-item">
+                    <h4>【先輩スタッフのフォロー体制】</h4>
+
+                    <div class="training-content">
+                      <div class="training-image">
+                        <img
+                          src="images/stylist2.jpg"
+                          alt="先輩スタッフのフォロー"
+                        />
+                      </div>
+
+                      <div class="training-text">
+                        <p>
+                          定期的な技術チェックを行い、出来ている部分と改善点を明確にします。<br />
+                          「できない」で終わらせるのではなく、先輩と一緒に考えて「できる！」
+                          に変えていきましょう。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- プログラム詳細ボタン -->
+                  <div class="training-detail-button">
+                    <a href="job.html#training-program" class="pdf-btn">
+                      プログラムの詳細はこちら
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- 求人バナーエリア ---------- -->
+      <div class="banner-icon-area">
+        <!-- 最大幅1200px制御用 -->
+        <div class="banner-icon-inner">
+          <!-- ---------- 求人バナー ---------- -->
+
+          <a href="job.html" class="banner banner-job">
+            <img src="images/banner.png" alt="求人情報はこちら" />
+          </a>
+
+          <!-- ---------- フッターopenアイコン ---------- -->
+          <!--
+                ・下にコンテンツがあることを示す
+                ・CSSアニメーションで上下に動く
+              -->
+
+          <div class="hero-icon-area">
+            <div class="arrow">▲</div>
+            <div class="arrow">▲</div>
+            <span class="tap-text">open</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================== Common footer =========================== -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <!-- ---------- footer closeアイコン ---------- -->
+        <div class="footer-close-area">
+          <span class="tap-text">close</span>
+          <div class="arrow">▼</div>
+          <div class="arrow">▼</div>
+        </div>
+        <!-- ---------- footer main ---------- -->
+        <div class="footer-main">
+          <!--  footerナビ  -->
+          <div class="footer-nav-area">
+            <div class="footer-menu-text">
+              <h3>~MENU~</h3>
+            </div>
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="menu.html">メニュー</a></li>
+                <li><a href="staff.html">スタッフ</a></li>
+                <li><a href="job.html">採用情報</a></li>
+                <li><a href="concept.html">店舗情報</a></li>
+                <li><a href="contact.html">ご予約</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!--  SNSアイコン  -->
+          <div class="footer-sns-area">
+            <div class="footer-sns-text">
+              <h3>~SNS~</h3>
+            </div>
+            <div class="footer-sns">
+              <a
+                href="https://www.facebook.com/rosehip.vc/"
+                aria-label="Facebook"
+              >
+                <img src="images/icon-facebook.svg" alt="" />
+              </a>
+              <a href="https://x.com/rosehip_vc" aria-label="X">
+                <img src="images/icon-x.svg" alt="" />
+              </a>
+              <a
+                href="https://www.instagram.com/rose_hip_total_beauty/"
+                aria-label="Instagram"
+              >
+                <img src="images/icon-instagram.svg" alt="" />
+              </a>
+              <a href="https://lin.ee/nPXN010" aria-label="LINE">
+                <img src="images/icon-line.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- footer logo&info ---------- -->
+        <div class="footer-logo-area">
+          <!-- footer logo -->
+          <div class="footer-brand">
+            <a href="index.html">
+              <img
+                class="footerlogo"
+                src="images/logo.svg"
+                alt="ROSE HIP logo"
+              />
+              <span class="sr-only">ROSE HIP</span>
+            </a>
+
+            <!-- address・tel -->
+            <address class="footer-info">
+              <p>〒819-0022</p>
+              <p>福岡県福岡市西区福重5丁目4-10</p>
+              <p>
+                TEL：
+                <a href="tel:0928952580">092-895-2580(ご予約承ります。)</a>
+              </p>
+              <p>
+                営業時間/<br />
+                火曜～土曜 10:00～19：00<br />
+                日曜・祝日 10:00～18：00
+              </p>
+              <p>定休日/ <br />毎週月曜日・第3火曜日</p>
+            </address>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- コピーライト ---------- -->
+      <div class="footer-copy">
+        <small>© ROSE HIP All Rights Reserved.</small>
+      </div>
+    </footer>
+    <!-- =========================== JavaScript =========================== -->
+    <!--
+        ・DOM生成後に読み込む
+        ・Splash / Hamburger / Video / Text 制御
+      -->
+    <script src="js/common.js"></script>
+  </body>
+</html>

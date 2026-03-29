@@ -1,0 +1,322 @@
+/* =========================== contact ページ専用 =========================== */
+
+/* 背景画像 */
+.sub-main-inner::before {
+  background-image: url("../images/contact-bg.jpg");
+  background-size: cover;
+  background-position: center top 50%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Concept文章だけ */
+.shop-concept {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* ===========================
+   共通
+=========================== */
+
+.section-body {
+  padding: 20px;
+}
+
+.section-body h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.section-body h5 {
+  font-size: 16px;
+  margin: 20px 0 10px;
+}
+
+.section-body p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ===========================
+   Reservation エリア
+=========================== */
+
+.reservation-web,
+.reservation-phone {
+  text-align: center;
+}
+
+.reservation-inner:not(:first-child) {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.reservation-web img {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.reservation-url {
+  margin: 10px 0;
+  word-break: break-all;
+}
+
+.reservation-url a {
+  font-size: 14px;
+  color: #333;
+  color: #0066cc;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.reservation-url a::after {
+  font-size: 12px;
+  margin-left: 6px;
+  color: #666;
+}
+
+.reservation-benefit ul {
+  padding: 0 20px;
+}
+
+.reservation-benefit li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.reservation-note {
+  font-size: 13px;
+  color: #666;
+  margin: 20px 0;
+}
+
+.reservation-phone {
+  margin-top: 30px;
+}
+
+.phone-number a {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.phone-text {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* ===========================
+   Q&A エリア
+=========================== */
+
+.qa-list {
+  border-top: 1px solid #ddd;
+}
+
+.qa-item {
+  border-bottom: 1px solid #ddd;
+}
+
+/* 質問 */
+.qa-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 16px 15px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* アイコン */
+.qa-icon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* 回答（閉じてる状態） */
+.qa-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  font-size: 13px;
+  line-height: 1.6;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
+}
+
+/* 開いてる状態 */
+.qa-item.active .qa-answer {
+  max-height: 200px; /* 内容に対して余裕もたせる */
+  padding: 0 15px 15px;
+}
+
+/* アイコン回転 */
+.qa-item.active .qa-icon {
+  transform: rotate(180deg);
+}
+
+/* ===========================
+   Contact Form
+=========================== */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-item label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-submit {
+  width: 100%;
+  max-width: 320px;
+  margin: 10px auto 0;
+  padding: 12px;
+  font-size: 16px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+
+.form-note {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ===========================
+   Modal
+=========================== */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.modal.active {
+  display: block;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 30px 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+/* ===========================
+   タブレット以上
+=========================== */
+
+@media screen and (min-width: 768px) {
+  .reservation-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .reservation-inner {
+    width: calc(50% - 20px);
+  }
+
+  .reservation-inner:not(:first-child) {
+    padding-top: 20px;
+    margin-top: 0px;
+    border-top: none;
+  }
+
+  .reservation-inner:not(:first-child) {
+    padding: 0;
+  }
+
+  /* Q&A：2列 */
+  .qa-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: none;
+  }
+
+  .qa-item {
+    width: calc(50% - 10px);
+    border: 1px solid #ddd;
+  }
+}
+
+/* ===========================
+   PC（微調整）
+=========================== */
+
+@media screen and (min-width: 1024px) {
+  .section-body h4 {
+    font-size: 20px;
+  }
+
+  .phone-number a {
+    font-size: 22px;
+  }
+
+  .form-submit {
+    max-width: 300px;
+  }
+}

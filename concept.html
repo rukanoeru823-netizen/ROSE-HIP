@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- =========================== 基本設定 =========================== -->
+
+    <!-- 文字コード -->
+    <meta charset="UTF-8" />
+
+    <!-- タイトル（ブラウザタブ・検索結果用） -->
+    <title>ROSE HIP</title>
+
+    <!-- favicon(ファビコン) -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- レスポンシブ対応（これ無いとスマホで崩れる） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- リセットCSS（ブラウザ差を消す） -->
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <!-- 全ページ共通のスタイル -->
+    <link rel="stylesheet" href="css/common.css" />
+
+    <!-- サイト全体の構造スタイル -->
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <!-- トップページ専用スタイル -->
+    <link rel="stylesheet" href="css/concept.css" />
+  </head>
+
+  <body>
+    <!-- =========================== Common header =========================== -->
+    <!--
+        ・常時固定表示
+        ・ロゴ（左）＋ハンバーガー（右）
+        ・SPメニューのトリガー
+      -->
+
+    <header>
+      <div class="header-inner">
+        <!-- [Header] Logo -->
+        <a href="index.html">
+          <img class="headerlogo" src="images/logo.svg" alt="ROSE HIP logo" />
+          <!-- 画面には出ないが読み上げ用 -->
+          <span class="sr-only">ROSE HIP</span>
+        </a>
+
+        <!-- [Header] Hamburger Button -->
+        <!--
+            ・JSがクリックを監視
+            ・is-open で × に変形
+          -->
+        <button class="hamburger" aria-label="メニューを開く">
+          <!-- この3本がCSSで×（戻るボタン）に変形する -->
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- ---------- SPメニュー（全画面オーバーレイ） ---------- -->
+        <!--
+            ・初期状態は画面外（上）
+            ・is-open が付くと表示
+          -->
+
+        <nav class="sp-menu">
+          <ul class="headermenu">
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="staff.html">スタッフ</a></li>
+            <li><a href="job.html">採用情報</a></li>
+            <li><a href="concept.html">店舗情報</a></li>
+            <li><a href="contact.html">ご予約</a></li>
+          </ul>
+        </nav>
+
+        <!-- ---------- PCメニュー ---------- -->
+
+        <nav class="pc-nav">
+          <ul>
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="staff.html">スタッフ</a></li>
+            <li><a href="job.html">採用情報</a></li>
+            <li><a href="concept.html">店舗情報</a></li>
+            <li><a href="contact.html">ご予約</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =========================== main =========================== -->
+    <main class="page-sub">
+      <div class="sub-main-inner">
+        <!-- ---------- sub Hero ---------- -->
+        <section class="sub-hero">
+          <div class="sub-catch">
+            <p class="sub-title">【Concept】</p>
+            <p class="sub-title sub-title-sub">目次</p>
+            <ul class="sub-nav">
+              <li>
+                <a href="#shop concept">
+                  <span class="en">Shop Concept</span>
+                  <span class="jp">～店舗コンセプト～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#owner message">
+                  <span class="en">Owner Message</span>
+                  <span class="jp">～オーナーメッセージ～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#social activities">
+                  <span class="en">Social Activities</span>
+                  <span class="jp">～地域・社会への取り組み～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#shop info">
+                  <span class="en">Shop Info</span>
+                  <span class="jp">～店舗情報～</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ---------- sub-section ---------- -->
+
+        <!-- 大切にしている思い・価値観エリア -->
+        <div class="sub-area">
+          <div class="sub-area-inner">
+            <section class="sub-section" id="shop concept">
+              <div class="section-title">
+                <h3>Shop Concept</h3>
+                <p>～店舗コンセプト～</p>
+              </div>
+              <div class="section-body">
+                <div class="concept-values">
+                  <div class="concept-item">
+                    <h4>経営理念</h4>
+                    <img
+                      class="shop-concept-img"
+                      src="images/concept1.jpg"
+                      alt="大切にしている想い"
+                    />
+                    <p>
+                      Rose Hipは、お客様一人ひとりのライフスタイルに寄り添い、
+                      日常が少し前向きになるような美容を大切にしています。
+                    </p>
+                  </div>
+
+                  <div class="concept-item">
+                    <h4>価値観</h4>
+                    <img
+                      class="shop-concept-img"
+                      src="images/concept2.jpg"
+                      alt="価値観"
+                    />
+                    <p>
+                      技術だけでなく、空間・会話・安心感を大切にし、
+                      心からリラックスできるサロンであることを目指しています。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- オーナーメッセージエリア -->
+            <section class="sub-section" id="owner message">
+              <div class="section-title">
+                <h3>Owner Message</h3>
+                <p>～オーナーメッセージ～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="owner-message">
+                  <div class="owner-image">
+                    <img src="images/owner.jpg" alt="オーナー" />
+                  </div>
+
+                  <div class="owner-text">
+                    <dl>
+                      <dt>Q. なぜローズヒップを作ろうと思ったのですか？</dt>
+                      <dd>
+                        A. お客様が自分自身をもっと好きになれる場所を作りたいと
+                        思ったことがきっかけです。
+                      </dd>
+
+                      <dt>Q. これからローズヒップをどうしていきたいですか？</dt>
+                      <dd>
+                        A. 地域に根付き、世代を超えて通っていただける
+                        サロンにしていきたいと考えています。
+                      </dd>
+
+                      <dt>Q. 今後取り組んでいきたいことは？</dt>
+                      <dd>
+                        A. 美容を通じて、地域や社会に貢献できる活動を
+                        継続していきたいです。
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 社会的取り組みエリア -->
+            <section class="sub-section" id="social activities">
+              <div class="section-title">
+                <h3>Social Activities</h3>
+                <p>～地域・社会への取り組み～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="social-activities">
+                  <div class="activity-item">
+                    <h4>【子育て応援の店】</h4>
+                    <img src="images/activity-child.gif" alt="子育て応援の店" />
+                    <p>
+                      子育て中の方にも安心してご利用いただけるのはもちろん、
+                      子育て中の柔軟な対応と環境づくりを行っています。
+                    </p>
+                  </div>
+
+                  <div class="activity-item">
+                    <h4>【赤ちゃんの筆】</h4>
+                    <img src="images/activity-baby.jpg" alt="赤ちゃんの筆" />
+                    <p>
+                      大切な思い出を形に残すため、
+                      赤ちゃんの筆制作をお手伝いしています。
+                    </p>
+                  </div>
+
+                  <div class="activity-item">
+                    <h4>【ヘアドネーション】</h4>
+                    <img
+                      src="images/activity-donation.jpg"
+                      alt="ヘアドネーション"
+                    />
+                    <p>
+                      髪を通じて誰かの力になれるよう、
+                      ヘアドネーション活動を支援しています。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Shop infoエリア -->
+            <section class="sub-section" id="shop info">
+              <div class="section-title">
+                <h3>Shop Info</h3>
+                <p>～店舗情報～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="shop-info">
+                  <!-- 店舗詳細 -->
+                  <div class="shop-info-detail">
+                    <img src="images/logo.svg" alt="Rose Hip 店舗情報" />
+
+                    <div>
+                      <ul class="shop-info-list">
+                        <li>
+                          <span class="label">住所</span>
+                          <span class="value">
+                            〒819-0022<br />
+                            福岡県福岡市西区福重 5丁目4－10
+                          </span>
+                        </li>
+
+                        <li>
+                          <span class="label">電話番号</span>
+                          <span class="value">
+                            <a href="tel:0928952580" class="tel-link"
+                              >092-895-2580</a
+                            >
+                          </span>
+                        </li>
+
+                        <li>
+                          <span class="label">受付時間</span>
+                          <span class="value">
+                            火曜～土曜 10：00～19：00<br />
+                            日曜・祝日 10：00～18：00<br />
+                            <small
+                              >※ご不明な場合はお電話でお問い合わせください。</small
+                            >
+                          </span>
+                        </li>
+
+                        <li>
+                          <span class="label">定休日</span>
+                          <span class="value"> 毎週月曜日・第3火曜日 </span>
+                        </li>
+
+                        <li>
+                          <span class="label">アクセス</span>
+                          <span class="value">
+                            地下鉄空港線「姪浜駅」から車で5分
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Google Map -->
+                  <div class="shop-info-map">
+                    <iframe
+                      src="https://www.google.com/maps?q=福岡県福岡市西区福重5丁目4-10&output=embed"
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    >
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- 求人バナーエリア ---------- -->
+      <div class="banner-icon-area">
+        <!-- 最大幅1200px制御用 -->
+        <div class="banner-icon-inner">
+          <!-- ---------- 求人バナー ---------- -->
+
+          <a href="job.html" class="banner banner-job">
+            <img src="images/banner.png" alt="求人情報はこちら" />
+          </a>
+
+          <!-- ---------- フッターopenアイコン ---------- -->
+          <!--
+                ・下にコンテンツがあることを示す
+                ・CSSアニメーションで上下に動く
+              -->
+
+          <div class="hero-icon-area">
+            <div class="arrow">▲</div>
+            <div class="arrow">▲</div>
+            <span class="tap-text">open</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================== Common footer =========================== -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <!-- ---------- footer closeアイコン ---------- -->
+        <div class="footer-close-area">
+          <span class="tap-text">close</span>
+          <div class="arrow">▼</div>
+          <div class="arrow">▼</div>
+        </div>
+        <!-- ---------- footer main ---------- -->
+        <div class="footer-main">
+          <!--  footerナビ  -->
+          <div class="footer-nav-area">
+            <div class="footer-menu-text">
+              <h3>~MENU~</h3>
+            </div>
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="menu.html">メニュー</a></li>
+                <li><a href="staff.html">スタッフ</a></li>
+                <li><a href="job.html">採用情報</a></li>
+                <li><a href="concept.html">店舗情報</a></li>
+                <li><a href="contact.html">ご予約</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!--  SNSアイコン  -->
+          <div class="footer-sns-area">
+            <div class="footer-sns-text">
+              <h3>~SNS~</h3>
+            </div>
+            <div class="footer-sns">
+              <a
+                href="https://www.facebook.com/rosehip.vc/"
+                aria-label="Facebook"
+              >
+                <img src="images/icon-facebook.svg" alt="" />
+              </a>
+              <a href="https://x.com/rosehip_vc" aria-label="X">
+                <img src="images/icon-x.svg" alt="" />
+              </a>
+              <a
+                href="https://www.instagram.com/rose_hip_total_beauty/"
+                aria-label="Instagram"
+              >
+                <img src="images/icon-instagram.svg" alt="" />
+              </a>
+              <a href="https://lin.ee/nPXN010" aria-label="LINE">
+                <img src="images/icon-line.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- footer logo&info ---------- -->
+        <div class="footer-logo-area">
+          <!-- footer logo -->
+          <div class="footer-brand">
+            <a href="index.html">
+              <img
+                class="footerlogo"
+                src="images/logo.svg"
+                alt="ROSE HIP logo"
+              />
+              <span class="sr-only">ROSE HIP</span>
+            </a>
+
+            <!-- address・tel -->
+            <address class="footer-info">
+              <p>〒819-0022</p>
+              <p>福岡県福岡市西区福重5丁目4-10</p>
+              <p>
+                TEL：
+                <a href="tel:0928952580">092-895-2580(ご予約承ります。)</a>
+              </p>
+              <p>
+                営業時間/<br />
+                火曜～土曜 10:00～19：00<br />
+                日曜・祝日 10:00～18：00
+              </p>
+              <p>定休日/ <br />毎週月曜日・第3火曜日</p>
+            </address>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- コピーライト ---------- -->
+      <div class="footer-copy">
+        <small>© ROSE HIP All Rights Reserved.</small>
+      </div>
+    </footer>
+    <!-- =========================== JavaScript =========================== -->
+    <!--
+        ・DOM生成後に読み込む
+        ・Splash / Hamburger / Video / Text 制御
+      -->
+    <script src="js/common.js"></script>
+  </body>
+</html>

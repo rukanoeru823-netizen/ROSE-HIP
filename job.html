@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- =========================== 基本設定 =========================== -->
+
+    <!-- 文字コード -->
+    <meta charset="UTF-8" />
+
+    <!-- タイトル（ブラウザタブ・検索結果用） -->
+    <title>ROSE HIP</title>
+
+    <!-- favicon(ファビコン) -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- レスポンシブ対応（これ無いとスマホで崩れる） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- リセットCSS（ブラウザ差を消す） -->
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <!-- 全ページ共通のスタイル -->
+    <link rel="stylesheet" href="css/common.css" />
+
+    <!-- サイト全体の構造スタイル -->
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <!-- トップページ専用スタイル -->
+    <link rel="stylesheet" href="css/job.css" />
+  </head>
+
+  <body>
+    <!-- =========================== Common header =========================== -->
+    <!--
+        ・常時固定表示
+        ・ロゴ（左）＋ハンバーガー（右）
+        ・SPメニューのトリガー
+      -->
+
+    <header>
+      <div class="header-inner">
+        <!-- [Header] Logo -->
+        <a href="index.html">
+          <img class="headerlogo" src="images/logo.svg" alt="ROSE HIP logo" />
+          <!-- 画面には出ないが読み上げ用 -->
+          <span class="sr-only">ROSE HIP</span>
+        </a>
+
+        <!-- [Header] Hamburger Button -->
+        <!--
+            ・JSがクリックを監視
+            ・is-open で × に変形
+          -->
+        <button class="hamburger" aria-label="メニューを開く">
+          <!-- この3本がCSSで×（戻るボタン）に変形する -->
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- ---------- SPメニュー（全画面オーバーレイ） ---------- -->
+        <!--
+            ・初期状態は画面外（上）
+            ・is-open が付くと表示
+          -->
+
+        <nav class="sp-menu">
+          <ul class="headermenu">
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="staff.html">スタッフ</a></li>
+            <li><a href="job.html">採用情報</a></li>
+            <li><a href="concept.html">店舗情報</a></li>
+            <li><a href="contact.html">ご予約</a></li>
+          </ul>
+        </nav>
+
+        <!-- ---------- PCメニュー ---------- -->
+
+        <nav class="pc-nav">
+          <ul>
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="staff.html">スタッフ</a></li>
+            <li><a href="job.html">採用情報</a></li>
+            <li><a href="concept.html">店舗情報</a></li>
+            <li><a href="contact.html">ご予約</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =========================== main =========================== -->
+    <main class="page-sub page-menu">
+      <div class="sub-main-inner">
+        <!-- ---------- sub Hero ---------- -->
+        <section class="sub-hero">
+          <div class="sub-catch">
+            <p class="sub-title">【Job】</p>
+            <p class="sub-title sub-title-sub">目次</p>
+            <ul class="sub-nav">
+              <li>
+                <a href="#job information">
+                  <span class="en">Job Information</span>
+                  <span class="jp">～求人情報～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#training-program">
+                  <span class="en">Training Program</span>
+                  <span class="jp">～新人教育プログラム～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#career model">
+                  <span class="en">Career Model</span>
+                  <span class="jp">～キャリア&収入モデル～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#day's work">
+                  <span class="en">Day's Work</span>
+                  <span class="jp">～1日の流れ～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#employee benefits">
+                  <span class="en">Employee Benefits</span>
+                  <span class="jp">～福利厚生～</span>
+                </a>
+              </li>
+              <li>
+                <a href="#faq2">
+                  <span class="en">Q&A</span>
+                  <span class="jp">～よくある質問～</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ---------- sub-section ---------- -->
+        <div class="sub-area">
+          <div class="sub-area-inner">
+            <!-- 求人情報エリア -->
+            <section class="sub-section" id="job information">
+              <div class="section-title">
+                <h3>Job Information</h3>
+                <p>～求人情報～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="job-wrapper">
+                  <div class="job-role">
+                    <div class="job-tabs">
+                      <button class="job-tab active" data-target="stylist-new">
+                        スタイリスト
+                      </button>
+                      <button class="job-tab" data-target="stylist-mid">
+                        ネイリスト
+                      </button>
+                      <button class="job-tab" data-target="stylist-eye">
+                        アイリスト
+                      </button>
+                    </div>
+
+                    <!-- ================= スタイリスト ================= -->
+                    <div class="job-content active" id="stylist-new">
+                      <table class="job-table">
+                        <tr>
+                          <th>募集職種</th>
+                          <td>
+                            ①アシスタント(美容師)<br />
+                            ②スタイリスト(美容師)<br />
+                            ③店長候補(美容師)<br />
+                            ④マネージャー(美容師)<br />
+                            ⑤美容師スタッフ
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>応募資格</th>
+                          <td>
+                            要美容師免許取得者／美容専門学校卒業見込み<br />
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>雇用形態</th>
+                          <td>正社員／アルバイト・パート</td>
+                        </tr>
+                        <tr>
+                          <th>給与</th>
+                          <td>
+                            【正社員】<br />
+                            月給190,000～500,000円<br />
+                            【アルバイト・パート】<br />
+                            時給1,100～1,500円
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>諸手当</th>
+                          <td>
+                            通勤手当／勤続手当／技術手当<br />
+                            ※月1回昇級試験で合格するたびに技術手当がつきます。
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>待遇</th>
+                          <td>
+                            社会保険／厚生年金／雇用保険／労災保険／
+                            有給／社員旅行／社員割引
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>勤務時間</th>
+                          <td>
+                            【正社員】<br />
+                            10:00～20:00<br />
+                            （60分休憩あり）<br />
+                            【アルバイト・パート】<br />
+                            5～8時間程度(相談可)
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>休日休暇</th>
+                          <td>
+                            【正社員】<br />
+                            週休二日制<br />
+                            毎週月曜日・その他、第3日曜日<br />
+                            【アルバイト・パート】<br />
+                            希望シフト制<br />
+                            毎週月曜日、第3日曜日<br />
+                            ※ほか当社カレンダーに準ずる年末年始・夏季休暇等
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>勤務地</th>
+                          <td>
+                            Rose Hip<br />
+                            福岡市西区福重5-4-10
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>選考方法</th>
+                          <td>面談 → サロン見学</td>
+                        </tr>
+                        <tr>
+                          <th>応募方法</th>
+                          <td>
+                            <a
+                              href="contact.html#contact-form"
+                              class="job-link"
+                            >
+                              お問い合わせフォーム
+                            </a>
+                            または
+                            <a href="tel:0928952580" class="job-link">
+                              TEL（担当：前田まで）
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+
+                    <!-- ================= ネイリスト ================= -->
+                    <div class="job-content" id="stylist-mid">
+                      <table class="job-table">
+                        <tr>
+                          <th>募集職種</th>
+                          <td>ネイリスト</td>
+                        </tr>
+                        <tr>
+                          <th>応募資格</th>
+                          <td>JNAジェルネイル技能検定</td>
+                        </tr>
+                        <tr>
+                          <th>雇用形態</th>
+                          <td>正社員／アルバイト・パート</td>
+                        </tr>
+                        <tr>
+                          <th>給与</th>
+                          <td>
+                            【正社員】<br />
+                            月給190,000～300,000円<br />
+                            【アルバイト・パート】<br />
+                            時給1,100～1,500円
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>諸手当</th>
+                          <td>なし</td>
+                        </tr>
+                        <tr>
+                          <th>待遇</th>
+                          <td>
+                            社会保険／厚生年金／雇用保険／労災保険／
+                            有給／社員旅行／社員割引／提携美容院割引／
+                            セミナー受講料等の補填
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>勤務時間</th>
+                          <td>
+                            【正社員】<br />
+                            10:00～20:00<br />
+                            （60分休憩あり）<br />
+                            【アルバイト・パート】<br />
+                            5～8時間程度(相談可)
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>休日休暇</th>
+                          <td>
+                            【正社員】<br />
+                            週休二日制<br />
+                            毎週月曜日・その他、第3日曜日<br />
+                            【アルバイト・パート】<br />
+                            希望シフト制<br />
+                            毎週月曜日、第3日曜日<br />
+                            ※ほか当社カレンダーに準ずる年末年始・夏季休暇等
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>勤務地</th>
+                          <td>
+                            Rose Hip<br />
+                            福岡市西区福重5-4-10
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>選考方法</th>
+                          <td>面談 → サロン見学</td>
+                        </tr>
+                        <tr>
+                          <th>応募方法</th>
+                          <td>
+                            <a
+                              href="contact.html#contact-form"
+                              class="job-link"
+                            >
+                              お問い合わせフォーム
+                            </a>
+                            または
+                            <a href="tel:0928952580" class="job-link">
+                              TEL（担当：前田まで）
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+
+                    <!-- ================= アイリスト ================= -->
+                    <div class="job-content" id="stylist-eye">
+                      <table class="job-table">
+                        <tr>
+                          <th>募集職種</th>
+                          <td>アイリスト</td>
+                        </tr>
+                        <tr>
+                          <th>応募資格</th>
+                          <td>
+                            要美容師免許取得者／美容専門学校卒業見込み<br />
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>雇用形態</th>
+                          <td>正社員／アルバイト・パート</td>
+                        </tr>
+                        <tr>
+                          <th>給与</th>
+                          <td>
+                            【正社員】<br />
+                            月給190,000～400,000円<br />
+                            【アルバイト・パート】<br />
+                            時給1,100～1,500円
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>諸手当</th>
+                          <td>
+                            通勤手当／勤続手当／技術手当<br />
+                            ※月1回昇級試験で合格するたびに技術手当がつきます。
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>待遇</th>
+                          <td>
+                            社会保険／厚生年金／雇用保険／労災保険／
+                            有給／社員旅行／社員割引
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>勤務時間</th>
+                          <td>
+                            【正社員】<br />
+                            10:00～20:00<br />
+                            （60分休憩あり）<br />
+                            【アルバイト・パート】<br />
+                            5～8時間程度(相談可)
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>休日休暇</th>
+                          <td>
+                            【正社員】<br />
+                            週休二日制<br />
+                            毎週月曜日・その他、第3日曜日<br />
+                            【アルバイト・パート】<br />
+                            希望シフト制<br />
+                            毎週月曜日、第3日曜日<br />
+                            ※ほか当社カレンダーに準ずる年末年始・夏季休暇等
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>勤務地</th>
+                          <td>Rose Hip 福岡市西区福重5-4-10</td>
+                        </tr>
+                        <tr>
+                          <th>選考方法</th>
+                          <td>面談 → サロン見学</td>
+                        </tr>
+                        <tr>
+                          <th>応募方法</th>
+                          <td>
+                            <a
+                              href="contact.html#contact-form"
+                              class="job-link"
+                            >
+                              お問い合わせフォーム
+                            </a>
+                            または
+                            <a href="tel:0928952580" class="job-link">
+                              TEL（担当：前田まで）
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="job-pdf-button">
+                      <a
+                        href="PDF/ROSEHIP求人情報詳細.pdf"
+                        target="_blank"
+                        class="pdf-btn"
+                      >
+                        📄 求人詳細はこちら
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 新人教育プログラムエリア -->
+            <section class="sub-section" id="training-program">
+              <div class="section-title">
+                <h3>Training Program</h3>
+                <p>～新人教育プログラム～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="training-tabs">
+                  <div class="training-tab-buttons">
+                    <button
+                      class="training-tab active"
+                      data-target="training-stylist"
+                    >
+                      スタイリスト
+                    </button>
+                    <button class="training-tab" data-target="training-nail">
+                      ネイリスト
+                    </button>
+                    <button class="training-tab" data-target="training-eye">
+                      アイリスト
+                    </button>
+                  </div>
+
+                  <!-- ================= スタイリスト ================= -->
+                  <div
+                    class="training-content-area active"
+                    id="training-stylist"
+                  >
+                    <div class="training-detail-item">
+                      <h4>【新卒の方も安心なカリキュラム】</h4>
+                      <div class="training-detail-block">
+                        <div class="training-detail-image">
+                          <img
+                            src="images/stylist1.jpg"
+                            alt="スタイリスト基礎研修の画像"
+                          />
+                        </div>
+                        <p>
+                          ROSE HIPでは段階式の教育カリキュラムを導入。<br />
+                          シャンプーや接客などの基礎から、カラー・カット・髪質改善まで一つずつ
+                          技術を習得していきます。
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="training-detail-item">
+                      <h4>【先輩スタッフのフォロー体制】</h4>
+                      <div class="training-detail-block">
+                        <div class="training-detail-image">
+                          <img
+                            src="images/stylist2.jpg"
+                            alt="スタイリスト技術チェックの画像"
+                          />
+                        </div>
+                        <p>
+                          定期的な技術チェックを行い、出来ている部分と改善点を明確にします。<br />
+                          「できない」で終わらせるのではなく、先輩と一緒に考えて「できる！」
+                          に変えていきましょう。
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="training-detail-item">
+                      <h4>【ROSE HIPが選ばれる3つの理由】</h4>
+                      <div class="training-detail-block">
+                        <div class="training-detail-image">
+                          <img
+                            src="images/stylist3.png"
+                            alt="スタイリスト成長ステップの画像"
+                          />
+                        </div>
+                        <p>
+                          ①基礎から学べる教育制度<br />
+                          ②先輩スタッフのサポート体制<br />
+                          ③デビュー後も成長できる環境
+                        </p>
+                      </div>
+                      <div class="job-pdf-button">
+                        <a
+                          href="PDF/stylistーcurriculum.pdf"
+                          target="_blank"
+                          class="pdf-btn"
+                        >
+                          スタイリスト<br />
+                          教育プログラム詳細
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ================= ネイリスト ================= -->
+                  <div class="training-content-area" id="training-nail">
+                    <div class="training-detail-item">
+                      <h4>【カリキュラム制作中】</h4>
+                      <div class="training-detail-block">
+                        <div class="training-detail-image">
+                          <img
+                            src="images/seisakucyuu.png"
+                            alt="ネイリスト接客研修の画像"
+                          />
+                        </div>
+                        <p>
+                          ただいま新人教育プラグラム制作中にあたり
+                          詳しい事を知りたい方はお気軽にお電話下さい。
+                        </p>
+                      </div>
+                      <div class="job-pdf-button">
+                        <a href="PDF/" target="_blank" class="pdf-btn">
+                          教育プログラム詳細<br />
+                          (準備中)
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ================= アイリスト ================= -->
+                  <div class="training-content-area" id="training-eye">
+                    <div class="training-detail-item">
+                      <h4>【未経験でも安心してスタート】</h4>
+                      <div class="training-detail-block">
+                        <div class="training-detail-image">
+                          <img
+                            src="images/eyelist1.png"
+                            alt="アイリスト安全研修の画像"
+                          />
+                        </div>
+                        <p>
+                          美容師免許を活かして、新しい技術に挑戦してみませんか？<br />
+                          基礎から丁寧に指導するカリキュラムがあるので、
+                          未経験の方でも安心してスタートできます
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="training-detail-item">
+                      <h4>【モデル制度で段階的デビュー】</h4>
+                      <div class="training-detail-block">
+                        <div class="training-detail-image">
+                          <img
+                            src="images/eyelist2.png"
+                            alt="アイリストモデル練習の画像"
+                          />
+                        </div>
+                        <p>
+                          いきなりお客様に施術するのではなく、モデル施術からスタート。<br />
+                          経験を積みながら技術と自信を身につけ、段階的にお客様デビューを目指せます。
+                        </p>
+                      </div>
+
+                      <div class="training-detail-item">
+                        <h4>【幅広い美容を学べる環境】</h4>
+                        <div class="training-detail-block">
+                          <div class="training-detail-image">
+                            <img
+                              src="images/eyelist3.jpg"
+                              alt="アイリスト安全研修の画像"
+                            />
+                          </div>
+                          <p>
+                            ヘア・まつ毛・ネイルを展開するトータルビューティーサロン。<br />
+                            さまざまな美容に触れながらスキルの幅を広げられる環境です。
+                          </p>
+                        </div>
+                      </div>
+                      <div class="job-pdf-button">
+                        <a
+                          href="PDF/eyelist-curriculum.pdf"
+                          target="_blank"
+                          class="pdf-btn"
+                        >
+                          アイリスト<br />
+                          教育プログラム詳細
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- キャリア＆収入モデル エリア -->
+            <section class="sub-section" id="career model">
+              <div class="section-title">
+                <h3>Career Model</h3>
+                <p>～キャリア&収入モデル～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="career-tabs">
+                  <!-- タブボタン -->
+                  <div class="career-tab-buttons">
+                    <button
+                      class="career-tab active"
+                      data-target="career-stylist"
+                    >
+                      スタイリスト
+                    </button>
+                    <button class="career-tab" data-target="career-nail">
+                      ネイリスト
+                    </button>
+                    <button class="career-tab" data-target="career-eye">
+                      アイリスト
+                    </button>
+                  </div>
+
+                  <!-- ================= スタイリスト ================= -->
+                  <div class="career-content active" id="career-stylist">
+                    <h4 class="career-role-title">スタイリスト（野中 一樹）</h4>
+
+                    <div class="career-flex">
+                      <div class="career-image">
+                        <img src="images/nonaka.jpg" alt="スタイリストモデル" />
+                      </div>
+
+                      <div class="career-timeline">
+                        <div class="career-step">
+                          <h5>入社1年目</h5>
+                          <p class="career-income">月収 25万円</p>
+                          <p>→ 技術習得期間</p>
+                        </div>
+
+                        <div class="career-step">
+                          <h5>入社3年目</h5>
+                          <p class="career-income">月収 35万円</p>
+                          <p>→ 指名増加</p>
+                        </div>
+
+                        <div class="career-step">
+                          <h5>入社5年目</h5>
+                          <p class="career-income">月収 40万円以上</p>
+                          <p>→ 店長就任</p>
+                        </div>
+
+                        <div class="career-future">
+                          <p>現在：店長として活躍中</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ================= ネイリスト ================= -->
+                  <div class="career-content" id="career-nail">
+                    <h4 class="career-role-title">ネイリスト（正社員募集）</h4>
+
+                    <div class="career-flex">
+                      <div class="career-image">
+                        <img src="images/nail-job.png" alt="ネイリストモデル" />
+                      </div>
+
+                      <div class="career-timeline">
+                        <div class="career-step">
+                          <h5>入社1年目</h5>
+                          <p class="career-income">月収 19万円</p>
+                          <p>→ 基礎技術習得</p>
+                        </div>
+
+                        <div class="career-step">
+                          <h5>入社3年目</h5>
+                          <p class="career-income">月収 25万円</p>
+                          <p>→ リピーター増加</p>
+                        </div>
+
+                        <div class="career-step">
+                          <h5>入社5年目</h5>
+                          <p class="career-income">月収 30万円以上</p>
+                          <p>→ トップネイリスト</p>
+                        </div>
+
+                        <p>※上記の月収は以前の実績です。</p>
+
+                        <div class="career-future">
+                          <p>現在：ネイリスト(正社員)募集中です。</p>
+                          <p>将来：独立等も応援いたします。</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ================= アイリスト ================= -->
+                  <div class="career-content" id="career-eye">
+                    <h4 class="career-role-title">アイリスト（土谷 裕子）</h4>
+
+                    <div class="career-flex">
+                      <div class="career-image">
+                        <img src="images/tuchiya.jpg" alt="アイリストモデル" />
+                      </div>
+
+                      <div class="career-timeline">
+                        <div class="career-step">
+                          <h5>入社1年目</h5>
+                          <p class="career-income">月収 19万円</p>
+                          <p>→ 技術デビュー準備</p>
+                        </div>
+
+                        <div class="career-step">
+                          <h5>入社3年目</h5>
+                          <p class="career-income">月収 28万円</p>
+                          <p>→ 指名安定</p>
+                        </div>
+
+                        <div class="career-step">
+                          <h5>入社5年目</h5>
+                          <p class="career-income">月収 30万円以上</p>
+                          <p>→ 売上トップ</p>
+                        </div>
+
+                        <div class="career-future">
+                          <p>現在：安定した売上を確立</p>
+                          <p>将来：教育担当や独立も可能</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 1日の流れエリア -->
+            <section class="sub-section" id="day's work">
+              <div class="section-title">
+                <h3>Day's Work</h3>
+                <p>～1日の流れ～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="day-flow">
+                  <!-- 9:20～9:55 出勤・朝礼 -->
+                  <div class="flow-item">
+                    <h4>【9:20～9:55 清掃・朝礼】</h4>
+                    <img src="images/seisou.jpg" alt="出勤・朝礼" />
+                    <p>
+                      店内を綺麗にしてお客様をお出迎えする準備と申し送り事項や予約の確認などを行います。
+                    </p>
+                  </div>
+
+                  <div class="flow-arrow">↓</div>
+
+                  <!-- 10:00 営業開始 -->
+                  <div class="flow-item">
+                    <h4>【10:00 営業開始】</h4>
+                    <img src="images/start.jpg" alt="営業開始" />
+                    <p>笑顔でお客様をお迎えし、施術や接客を行います。</p>
+                  </div>
+
+                  <div class="flow-arrow">↓</div>
+
+                  <!-- 13:00～15:00 休憩(45分) -->
+                  <div class="flow-item">
+                    <h4>【12:00～15:00 休憩(45分)】</h4>
+                    <img src="images/kyuukei.jpg" alt="休憩" />
+                    <p>
+                      決まった時間に休憩を取るのは難しいですが、しっかり45分休憩を取って頂きます。
+                    </p>
+                  </div>
+
+                  <div class="flow-arrow">↓</div>
+
+                  <!-- 19:00～19:50 閉店準備 -->
+                  <div class="flow-item">
+                    <h4>【19:00～19:50 閉店準備】</h4>
+                    <img src="images/karute.jpg" alt="閉店準備" />
+                    <p>最後のお客様をお見送り、カルテ記入などを行います。</p>
+                  </div>
+
+                  <div class="flow-arrow">↓</div>
+
+                  <!-- 20:00 終礼 -->
+                  <div class="flow-item">
+                    <h4>【20:00 終礼】</h4>
+                    <img src="images/syuurei.jpg" alt="終礼" />
+                    <p>
+                      本日の報告・連絡・確認を行い、1日の業務終了となります。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 福利厚生エリア -->
+            <section class="sub-section" id="employee benefits">
+              <div class="section-title">
+                <h3>Employee Benefits</h3>
+                <p>～福利厚生～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="benefits-grid">
+                  <div class="benefit-card">
+                    <div class="benefit-icon">
+                      <img src="images/shaho-icon.svg" alt="社会保険" />
+                    </div>
+                    <h4>社会保険</h4>
+                    <p>安心して長く働ける環境を整えています。</p>
+                  </div>
+
+                  <div class="benefit-card">
+                    <div class="benefit-icon">
+                      <img src="images/nenkin-icon.svg" alt="厚生年金" />
+                    </div>
+                    <h4>厚生年金</h4>
+                    <p>将来を見据えた安定した制度を完備。</p>
+                  </div>
+
+                  <div class="benefit-card">
+                    <div class="benefit-icon">
+                      <img src="images/koyou-icon.svg" alt="雇用保険" />
+                    </div>
+                    <h4>雇用保険</h4>
+                    <p>万が一の時も安心できる体制です。</p>
+                  </div>
+
+                  <div class="benefit-card">
+                    <div class="benefit-icon">
+                      <img src="images/rosai-icon.svg" alt="労災保険" />
+                    </div>
+                    <h4>労災保険</h4>
+                    <p>安心して働ける職場環境を守ります。</p>
+                  </div>
+
+                  <div class="benefit-card">
+                    <div class="benefit-icon">
+                      <img src="images/yukyu-icon.svg" alt="有給" />
+                    </div>
+                    <h4>有給</h4>
+                    <p>しっかり休んでリフレッシュできます。</p>
+                  </div>
+
+                  <div class="benefit-card">
+                    <div class="benefit-icon">
+                      <img src="images/trip-icon.svg" alt="社員旅行" />
+                    </div>
+                    <h4>社員旅行</h4>
+                    <p>スタッフ同士の交流を大切にしています。</p>
+                  </div>
+
+                  <div class="benefit-card">
+                    <div class="benefit-icon">
+                      <img src="images/sell-icon.svg" alt="社員割引" />
+                    </div>
+                    <h4>社員割引</h4>
+                    <p>お得にサービスを利用できます。</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- FAQエリア -->
+            <section class="sub-section" id="faq2">
+              <div class="section-title">
+                <h3>Q&A</h3>
+                <p>～よくある質問～</p>
+              </div>
+
+              <div class="section-body">
+                <div class="qa-list">
+                  <div class="qa-item">
+                    <button class="qa-question">
+                      未経験でも応募できますか？
+                      <span class="qa-icon">▼</span>
+                    </button>
+                    <div class="qa-answer">
+                      A. はい、未経験の方も歓迎しています。
+                      入社後は研修制度や先輩スタッフのサポート
+                      があるため、安心してスタートできます。
+                    </div>
+                  </div>
+
+                  <div class="qa-item">
+                    <button class="qa-question">
+                      年齢制限はありますか？
+                      <span class="qa-icon">▼</span>
+                    </button>
+                    <div class="qa-answer">
+                      A. 特別な年齢制限は設けていません。
+                      やる気と人柄を重視して採用を行っています。
+                    </div>
+                  </div>
+
+                  <div class="qa-item">
+                    <button class="qa-question">
+                      残業はありますか？
+                      <span class="qa-icon">▼</span>
+                    </button>
+                    <div class="qa-answer">
+                      A. 基本的に残業は少なめです。
+                      繁忙期には発生する場合がありますが、
+                      無理のない働き方を心がけています。
+                    </div>
+                  </div>
+
+                  <div class="qa-item">
+                    <button class="qa-question">
+                      福利厚生について詳しく知りたい
+                      <span class="qa-icon">▼</span>
+                    </button>
+                    <div class="qa-answer">
+                      A. 上記の福利厚生に情報を載せています。
+                      もっと詳しく知りたい方はお気軽にお電話ください。
+                    </div>
+                  </div>
+
+                  <div class="qa-item">
+                    <button class="qa-question">
+                      応募の流れを教えて下さい。
+                      <span class="qa-icon">▼</span>
+                    </button>
+                    <div class="qa-answer">
+                      A. エントリー → 面談 → サロン見学という流れになります。
+                      面接結果はできるだけ早くご連絡いたします。
+                    </div>
+                  </div>
+
+                  <div class="qa-item">
+                    <button class="qa-question">
+                      人見知りでも働けますか？
+                      <span class="qa-icon">▼</span>
+                    </button>
+                    <div class="qa-answer">
+                      A. 接客業なので人との関りはありますが、
+                      弊社は仲のいいスタッフが多いので先輩が
+                      必ずフォローしてくれます。
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- 求人バナーエリア ---------- -->
+      <div class="banner-icon-area">
+        <!-- 最大幅1200px制御用 -->
+        <div class="banner-icon-inner">
+          <!-- ---------- 求人バナー ---------- -->
+
+          <a href="tel:0928952580" class="banner banner-job">
+            <img src="images/banner2.png" alt="応募ボタン" />
+          </a>
+          <!-- ---------- フッターopenアイコン ---------- -->
+          <!--
+                ・下にコンテンツがあることを示す
+                ・CSSアニメーションで上下に動く
+              -->
+
+          <div class="hero-icon-area">
+            <div class="arrow">▲</div>
+            <div class="arrow">▲</div>
+            <span class="tap-text">open</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================== Common footer =========================== -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <!-- ---------- footer closeアイコン ---------- -->
+        <div class="footer-close-area">
+          <span class="tap-text">close</span>
+          <div class="arrow">▼</div>
+          <div class="arrow">▼</div>
+        </div>
+        <!-- ---------- footer main ---------- -->
+        <div class="footer-main">
+          <!--  footerナビ  -->
+          <div class="footer-nav-area">
+            <div class="footer-menu-text">
+              <h3>~MENU~</h3>
+            </div>
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="menu.html">メニュー</a></li>
+                <li><a href="staff.html">スタッフ</a></li>
+                <li><a href="job.html">採用情報</a></li>
+                <li><a href="concept.html">店舗情報</a></li>
+                <li><a href="contact.html">ご予約</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!--  SNSアイコン  -->
+          <div class="footer-sns-area">
+            <div class="footer-sns-text">
+              <h3>~SNS~</h3>
+            </div>
+            <div class="footer-sns">
+              <a
+                href="https://www.facebook.com/rosehip.vc/"
+                aria-label="Facebook"
+              >
+                <img src="images/icon-facebook.svg" alt="" />
+              </a>
+              <a href="https://x.com/rosehip_vc" aria-label="X">
+                <img src="images/icon-x.svg" alt="" />
+              </a>
+              <a
+                href="https://www.instagram.com/rose_hip_total_beauty/"
+                aria-label="Instagram"
+              >
+                <img src="images/icon-instagram.svg" alt="" />
+              </a>
+              <a href="https://lin.ee/nPXN010" aria-label="LINE">
+                <img src="images/icon-line.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- footer logo&info ---------- -->
+        <div class="footer-logo-area">
+          <!-- footer logo -->
+          <div class="footer-brand">
+            <a href="index.html">
+              <img
+                class="footerlogo"
+                src="images/logo.svg"
+                alt="ROSE HIP logo"
+              />
+              <span class="sr-only">ROSE HIP</span>
+            </a>
+
+            <!-- address・tel -->
+            <address class="footer-info">
+              <p>〒819-0022</p>
+              <p>福岡県福岡市西区福重5丁目4-10</p>
+              <p>
+                TEL：
+                <a href="tel:0928952580">092-895-2580(ご予約承ります。)</a>
+              </p>
+              <p>
+                営業時間/<br />
+                火曜～土曜 10:00～19：00<br />
+                日曜・祝日 10:00～18：00
+              </p>
+              <p>定休日/ <br />毎週月曜日・第3火曜日</p>
+            </address>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- コピーライト ---------- -->
+      <div class="footer-copy">
+        <small>© ROSE HIP All Rights Reserved.</small>
+      </div>
+    </footer>
+    <!-- =========================== JavaScript =========================== -->
+    <!--
+        ・DOM生成後に読み込む
+        ・Splash / Hamburger / Video / Text 制御
+      -->
+    <script src="js/common.js"></script>
+    <script src="js/job.js"></script>
+  </body>
+</html>

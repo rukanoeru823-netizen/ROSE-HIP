@@ -1,0 +1,1211 @@
+/* =========================== 下層ページ共通構造 =========================== */
+
+.page-sub {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.sub-main-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 背景（画像は各ページで上書き） */
+.sub-main-inner::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-size: auto 100%;
+  background-position: center top;
+  z-index: -1;
+}
+
+/* ---------- Hero ---------- */
+
+.sub-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.sub-catch {
+  width: 100%;
+  max-width: 800px;
+  font-size: 17px;
+  line-height: 2.5;
+  letter-spacing: 0.08em;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 8px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlow 2s ease forwards;
+}
+
+.scroll-show {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 450;
+}
+
+/* 目次リスト */
+.sub-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+/* リンク */
+.sub-nav a {
+  display: block;
+  width: 250px; /* ←横幅固定（ここがポイント） */
+  padding: 10px 0;
+  border-radius: 6px;
+  background: rgba(243, 190, 75, 0.5);
+  text-decoration: none;
+  color: #222;
+  text-align: center;
+  transition: 0.3s;
+}
+
+/* 英語 */
+.sub-nav .en {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1; /* ←これ重要 */
+}
+
+/* 日本語 */
+.sub-nav .jp {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.1; /* ←これ重要 */
+  margin-top: 2px; /* ←間隔はここで微調整 */
+}
+
+/* ホバー */
+.sub-nav a:hover {
+  background: #f3be4b;
+  transform: translateY(-2px);
+}
+
+/* ホバー */
+.sub-nav a:hover {
+  background: #f3be4b;
+  transform: translateY(-2px);
+}
+
+/* ---------- Section ---------- */
+
+.sub-section {
+  padding: 0 0 50px;
+}
+
+.section-title {
+  max-width: 90%;
+  margin: 0 auto 16px;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: fadeUp linear forwards;
+  animation-timeline: view();
+  animation-range: entry 20% cover 25%;
+}
+
+.section-title p {
+  font-size: 13px;
+}
+
+.section-body {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 6px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp linear forwards;
+  animation-timeline: view();
+  animation-range: entry 20% cover 13%;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- animation ---------- */
+
+@keyframes fadeSlow {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================== Splash Screen =========================== */
+
+/*
+  ⚠️ JS連動
+  初期ローディング演出用
+*/
+
+/* 画面全体を覆う白背景 */
+.splash {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+
+  /* ロゴを中央配置 */
+  display: flex;
+  flex-direction: column; /*子要素を縦方向に並べる（row だと横） */
+  align-items: center; /*横方向の中央揃えcolumn のとき → 左右中央 */
+  justify-content: center; /*縦方向の中央揃えcolumn のとき → 上下中央 */
+
+  /* すべての要素より前に出す */
+  z-index: 50; /* ⚠️ 最前面 */
+
+  /* フェードアウト用 */
+  transition: opacity 1s ease;
+}
+
+/* JSで is-hidden が付いたら消える */
+.splash.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ロゴ落下アニメーション */
+.splash-logo {
+  width: 250px;
+  animation: naturalDrop 1.5s forwards; /* ⚠️ 演出用 */
+}
+
+/* ロゴ下の文字 */
+.splash-sub {
+  margin-top: 16px; /* ロゴとの余白 */
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  color: #333;
+
+  opacity: 0; /* ← 最初は見えない */
+  transition: opacity 1.2s ease;
+}
+
+/* ロゴ下の文字を表示させる */
+.splash-sub.is-visible {
+  opacity: 1;
+}
+
+/* 落ちてバウンドして止まる */
+@keyframes naturalDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-550px);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(140px);
+  }
+  70% {
+    transform: translateY(-110px);
+  }
+  82% {
+    transform: translateY(20px);
+  }
+  90% {
+    transform: translateY(-10px);
+  }
+  96% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* =========================== header =========================== */
+/*
+  ⚠️ ここ触るな
+  position / z-index は全体挙動に直結
+*/
+
+/* ロゴ左・ハンバーガー右 */
+header {
+  position: fixed; /* ⚠️ 変更すると全体ズレる */
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 47; /* ⚠️ 背景動画の前 */
+}
+
+/* ★ ここが1200pxで止まる本体 */
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* ヘッダーロゴサイズ */
+.headerlogo {
+  width: 180px;
+}
+
+/* 見えないテキスト（アクセシビリティ） */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* =========================== ハンバーガー =========================== */
+/*
+  ⚠️ JS連動
+  クラス名・構造変更NG
+*/
+
+.hamburger {
+  width: 30px;
+  height: 27px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: none;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+
+  /* SPメニューより前に出す */
+  position: relative;
+  z-index: 49; /* ⚠️ SPメニューより前 */
+}
+
+/* 3本線 */
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: #000000bb;
+  border-radius: 5px;
+
+  /* 形が変わるアニメーション */
+  transition:
+    transform 0.4s ease,
+    opacity 0.3s ease,
+    background 0.3s ease;
+}
+
+/* =========================== main =========================== */
+
+.main-inner {
+  width: 100%;
+}
+
+/* =========================== CTAバナー（求人） =========================== */
+/*
+  banner
+  ・動画の上に固定表示
+  ・初期は小さめ＆半透明
+  ・hoverで存在感を出す
+  ⚠️ position / z-index 注意
+*/
+.banner-icon-area {
+  position: fixed; /*⚠️ 注意*/
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: auto;
+  z-index: 3; /*⚠️ 背景動画とヒーローテキストより前*/
+}
+
+.banner-icon-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* ← 子要素の基準点 */
+}
+
+.banner {
+  position: absolute;
+  width: 135px; /* Canvaで作った実寸を基準 */
+  height: auto;
+
+  opacity: 1; /* 初期は控えめ */
+  border-radius: 16px;
+  cursor: pointer;
+
+  transform: scale(0.9); /* 少し小さく */
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  z-index: 3; /*⚠️ 背景動画とヒーローテキストより前*/
+}
+
+/* 中の画像をきれいに表示 */
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
+}
+
+/* hover時：主張する */
+.banner:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 求人バナーの位置指定 */
+.banner-job {
+  right: 2%;
+  bottom: 10px;
+}
+
+/* =========================== フッター誘導アイコン =========================== */
+/*
+  hero-icon-area
+  ・フッターがあることを示す
+  ・視線を下へ誘導
+*/
+
+.hero-icon-area {
+  position: absolute; /*⚠️ 注意*/
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3; /*⚠️ 背景動画とヒーローテキストより前*/
+  cursor: pointer;
+  pointer-events: auto; /* ← もしくは行ごと削除 */
+}
+
+/* 山形アイコン */
+.arrow {
+  font-size: 8px;
+  color: #fff;
+  opacity: 0.8;
+
+  animation: arrowMove 1.6s ease-in-out infinite;
+}
+
+/* 少しずつズラす */
+.arrow:nth-child(1) {
+  animation-delay: 0s;
+}
+.arrow:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.arrow:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* open文字 */
+.tap-text {
+  display: block;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  color: #fff;
+  opacity: 0.8;
+}
+
+/* 上に流れるアニメーション */
+@keyframes arrowMove {
+  0% {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+}
+
+/* ===========================  footer  =========================== */
+/*
+  footer 全体設計
+  ・画面下からスライドインする固定フッター
+  ・初期状態は画面外（translateY:100%）
+  ・JSで is-active が付いたら表示
+  ⚠️ position / transform / z-index は挙動直結
+*/
+
+/* ---------- フッター全体（背景） ---------- */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  /* 半透明白＋背景ぼかし */
+  background: rgba(255, 255, 255);
+  backdrop-filter: blur(6px);
+
+  /* 初期は画面外へ */
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+
+  /* hero / banner より前 */
+  z-index: 5;
+}
+
+/* フッター見出し（共通） */
+.footer h3 {
+  text-align: center;
+  font-size: 17px;
+  letter-spacing: 0.2em;
+  margin-bottom: 5px;
+  color: #111;
+}
+
+/* JSで開いた状態 */
+.footer.is-active {
+  transform: translateY(0);
+}
+
+/* ---------- 中央幅制御（1200px） ---------- */
+/*
+  footer-inner
+  ・中身だけを1200pxで止める
+  ・左右は余白として余らせる
+*/
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 20px 0;
+}
+
+/* ---------- ナビ + SNS エリア ---------- */
+/*
+  footer-main
+  ・左：ナビ
+  ・右：SNSアイコン
+*/
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* ---------- フッターナビ ---------- */
+/*
+  2列構成
+  ・ul自体をflexで折り返し
+  ・li幅で2列を固定
+*/
+
+.footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 25px; /* 縦 横 */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 300px; /* 2列を安定させる */
+}
+
+.footer-nav li {
+  width: calc(50% - 20px); /* 2列 */
+}
+
+/* ナビリンク */
+.footer-nav a {
+  color: #111;
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  transition: opacity 0.5s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 0.4;
+}
+
+/* ---------- SNSアイコン ---------- */
+/*
+  ・横並び
+  ・ホバーで少し浮かせる
+*/
+
+.footer-sns {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-sns img {
+  width: 44px;
+  height: auto; /* 比率維持 */
+  opacity: 0.8;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.footer-sns a:hover img {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* ---------- ロゴ・店舗情報エリア ---------- */
+/*
+  footer-logo-area
+  ・ロゴ＋住所などの情報ブロック
+*/
+
+.footer-logo-area {
+  padding: 25px 0px;
+}
+
+.footerlogo {
+  margin-bottom: 15px;
+  width: 150px;
+}
+
+.footer-info {
+  font-size: 15px;
+}
+
+/* ---------- コピーライト ---------- */
+/*
+  最下部の帯
+*/
+
+.footer-copy {
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 16px 0;
+  background: rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.footer-copy small {
+  font-size: 13px;
+  color: #555;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- footer close UI ---------- */
+/*
+  フッターを閉じるための誘導エリア
+  ・矢印＋ tap テキスト
+  ・hero下の open UI と対になる存在
+*/
+
+.footer-close-area {
+  text-align: center;
+  margin: 6px 0px;
+  cursor: pointer;
+}
+
+/* 山形（下向き） */
+.footer-close-area .arrow {
+  font-size: 8px;
+  color: #111;
+  opacity: 0.6;
+  animation: footerArrowMove 1.6s ease-in-out infinite;
+}
+
+/* アニメーションずらし */
+.footer-close-area .arrow:nth-child(1) {
+  animation-delay: 0s;
+}
+.footer-close-area .arrow:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.footer-close-area .arrow:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* close text */
+.footer-close-area .tap-text {
+  display: block;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  color: #111;
+  opacity: 0.6;
+}
+
+/* 山形（下向き）が下へ流れるアニメーション */
+@keyframes footerArrowMove {
+  0% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+}
+
+/* ===========================  ハンバーガーメニュー押したときのSP menu  =========================== */
+/*
+  ⚠️ JS連動
+  ⚠️ position / z-index 注意
+*/
+
+.sp-menu {
+  position: fixed; /*⚠️ 注意*/
+  inset: 0;
+  background: rgba(0, 0, 0, 0.884);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 最初は画面外（上） */
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+
+  /* ハンバーガー(×)より後ろ */
+  z-index: 48; /*⚠️ SPメニューより前*/
+}
+
+/* JSで is-open が付いたら画面内へ */
+.sp-menu.is-open {
+  transform: translateY(0); /*⚠️ JS連動*/
+}
+
+/* メニューリスト */
+.sp-menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+/* 各メニュー間隔 */
+.sp-menu li {
+  margin: 24px 0;
+}
+
+/* メニュー文字 */
+.sp-menu a {
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+
+  /* ホバー時アニメーション */
+  transition:
+    color 0.4s ease,
+    letter-spacing 0.4s ease;
+}
+
+/* ポインター乗った瞬間に変化 */
+.sp-menu a:hover {
+  color: #535353;
+  letter-spacing: 0.25em;
+}
+
+/* =========================== ハンバーガー → 戻るボタン =========================== */
+/*
+  ⚠️ ここ触るな
+  JSトグル前提
+*/
+
+/* 開いた状態は白 */
+.hamburger.is-open span {
+  background: #fff; /*⚠️ ここ触るな*/
+}
+
+/* 上の線：斜め */
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(11px) rotate(-45deg); /*⚠️ ここ触るな*/
+}
+
+/* 真ん中消す */
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0; /*⚠️ ここ触るな*/
+}
+
+/* 下の線：斜め */
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-11px) rotate(45deg); /*⚠️ ここ触るな*/
+}
+
+/* =========================== レスポンシブ =========================== */
+
+/* ==================== スマホ横向き専用 ==================== */
+@media (max-height: 430px) and (orientation: landscape) {
+  /* ======
+  　　sub-catch
+  　　====== */
+  .sub-nav a {
+    width: 350px;
+  }
+
+  /* ======
+  　　footer
+  　　====== */
+
+  .footer {
+    /* スマホを寝かした時フッターの高さを制限 */
+    max-height: 64vh;
+    overflow-y: auto;
+  }
+}
+
+/* ==================== タブレット ==================== */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .sub-nav {
+    flex-direction: row;
+    flex-wrap: wrap; /* ←これが神 */
+    justify-content: center;
+  }
+  
+  .sub-nav a {
+    width: 450px; /* ←横幅固定（ここがポイント） */
+
+  }
+
+  /* 英語 */
+  .sub-nav .en {
+    font-size: 23px;
+  }
+
+  /* 日本語 */
+  .sub-nav .jp {
+    font-size: 21px;
+  }
+
+  /* ======
+      下層ページ共通構造 
+  　　====== */
+
+  .sub-hero p {
+    font-size: 19px;
+  }
+
+  .scroll-show {
+    font-size: 18px;
+  }
+
+  .section-title h3 {
+    font-size: 22px;
+  }
+
+  /* ======
+  　　Splash Screen
+  　　====== */
+
+  /* ロゴ落下アニメーション */
+  .splash-logo {
+    width: 350px;
+  }
+
+  /* ロゴ下の文字 */
+  .splash-sub {
+    font-size: 21px;
+  }
+
+  /* ======
+  　　header
+  　　====== */
+
+  /* ヘッダーロゴサイズ */
+  .headerlogo {
+    width: 280px;
+  }
+
+  /*  ハンバーガー  */
+  .hamburger {
+    width: 45px;
+    height: 38px;
+  }
+
+  /* 3本線 */
+  .hamburger span {
+    width: 100%;
+    height: 7px;
+  }
+
+  /* ======
+  　　main
+  　　====== */
+
+  /*
+  バナー・アイコンエリア
+    */
+
+  /*  CTAバナー（求人）  */
+  .banner {
+    width: 160px; /* Canvaで作った実寸を基準 */
+    opacity: 0.9;
+  }
+
+  /* 求人バナーの位置指定 */
+  .banner-job {
+    bottom: 10px;
+  }
+
+  /*  フッター誘導アイコン  */
+
+  /* 山形アイコン */
+  .arrow {
+    font-size: 14px;
+  }
+
+  /* tap文字 */
+  .tap-text {
+    font-size: 27px;
+  }
+
+  /* ======
+  　　footer
+  　　====== */
+
+  /* フッター見出し（共通） */
+  .footer h3 {
+    font-size: 25px;
+  }
+
+  /* ナビリンク */
+  .footer-nav a {
+    font-size: 22px;
+  }
+
+  .footer-sns {
+    gap: 45px;
+  }
+
+  .footerlogo {
+    width: 240px;
+    margin: 0px 0px 20px;
+  }
+
+  .footer-logo-area {
+    padding: 30px 0px 20px;
+    font-size: 21px;
+  }
+
+  .footer-info {
+    font-size: 19px;
+  }
+
+  .footer-copy small {
+    font-size: 18px;
+  }
+
+  /* 山形（下向き） */
+  .footer-close-area .arrow {
+    font-size: 14px;
+  }
+
+  /* close text */
+  .footer-close-area .tap-text {
+    font-size: 27px;
+  }
+
+  /* ======
+  　　hamburger menu
+  　　====== */
+
+  /*
+ハンバーガーメニュー押したときのSP menu
+    */
+
+  /* メニュー文字 */
+  .sp-menu a {
+    color: #fff;
+    font-size: 22px;
+  }
+
+  /*
+  ハンバーガー → 戻るボタン
+   */
+
+  /*
+  ⚠️ ここ触るな
+  JSトグル前提
+*/
+
+  /* 開いた状態は白 */
+  .hamburger.is-open span {
+    background: #fff; /*⚠️ ここ触るな*/
+  }
+
+  /* 上の線：斜め */
+  .hamburger.is-open span:nth-child(1) {
+    transform: translateY(19px) rotate(-45deg); /*⚠️ ここ触るな*/
+  }
+
+  /* 真ん中消す */
+  .hamburger.is-open span:nth-child(2) {
+    opacity: 0; /*⚠️ ここ触るな*/
+  }
+
+  /* 下の線：斜め */
+  .hamburger.is-open span:nth-child(3) {
+    transform: translateY(-11px) rotate(45deg); /*⚠️ ここ触るな*/
+  }
+}
+
+/* ==================== PC ==================== */
+@media screen and (min-width: 1024px) {
+  /* ======
+      下層ページ共通構造 
+  　　====== */
+
+  .sub-nav {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .sub-hero p {
+    font-size: 19px;
+  }
+
+  .scroll-show {
+    font-size: 18px;
+  }
+
+  .sub-section {
+    width: calc(50% - 20px);
+  }
+
+  .sub-area-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 20px; /* 縦 横 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ======
+  　　共通
+  　　====== */
+
+  .sp-menu {
+    display: none;
+  }
+
+  /* ======
+  　　Splash Screen
+  　　====== */
+
+  /* ロゴ落下アニメーション */
+  .splash-logo {
+    width: 350px;
+  }
+
+  /* ロゴ下の文字 */
+  .splash-sub {
+    font-size: 21px;
+  }
+
+  /* ======
+  　　header
+  　　====== */
+
+  header {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(4px); /* 任意：上品さUP */
+  }
+
+  .header-inner {
+    padding: 20px 20px; /* ← 今より薄く */
+  }
+
+  .pc-nav {
+    display: block;
+  }
+
+  .pc-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pc-nav a {
+    display: inline-block;
+    padding: 0.3em 0.4em;
+    color: #111;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 0.15em;
+    transition:
+      color 0.4s ease,
+      letter-spacing 0.4s ease;
+  }
+
+  .pc-nav a:hover {
+    opacity: 0.4;
+    letter-spacing: 0.25em;
+  }
+
+  /*
+  ハンバーガー
+   */
+
+  .hamburger {
+    display: none;
+  }
+
+  /* ======
+  　　main
+  　　====== */
+
+  /*
+   CTAバナー（求人）
+ */
+
+  .banner {
+    width: 160px; /* Canvaで作った実寸を基準 */
+    opacity: 0.9;
+  }
+
+  /* 求人バナーの位置指定 */
+  .banner-job {
+    bottom: 10px;
+  }
+
+  /*
+  フッター誘導アイコン
+  */
+
+  /* 山形アイコン */
+  .arrow {
+    font-size: 10px;
+  }
+
+  /* open text */
+  .tap-text {
+    font-size: 20px;
+  }
+
+  /* ======
+  　　footer
+  　　====== */
+
+  .footer-inner {
+    padding: 0px 80px;
+    margin: 0px auto;
+  }
+
+  .footerlogo {
+    margin-bottom: 15px;
+    width: 180px;
+  }
+
+  .footer-info {
+    font-size: 17px;
+  }
+
+  /* 山形（下向き） */
+  .footer-close-area .arrow {
+    font-size: 10px;
+  }
+
+  /* close text */
+  .footer-close-area .tap-text {
+    font-size: 20px;
+  }
+
+  .footer-nav ul {
+    display: flex;
+    flex-direction: row; /* ← これが決定打 */
+    gap: 32px;
+    max-width: 900px;
+  }
+
+  .footer-nav li {
+    width: auto; /* 1列 */
+  }
+
+  .footer-nav a {
+    font-size: 17px;
+  }
+
+  .footer-sns {
+    gap: 50px;
+  }
+}
+
+/* ====================下層ページ専用レイアウト制御（hero が存在しないページ）===================== */
+/* ==================================================
+   [設計ルール]
+   hero が存在しないページ = 下層ページ
+   → フッターは常時表示
+================================================== */
+
+/* ===========================
+   下層ページではフッター常時表示
+   hero が無いページが対象
+   =========================== */
+
+body:not(:has(.hero)) .footer {
+  transform: translateY(0);
+  position: relative;
+}
+
+body:not(:has(.hero)) .footer-inner {
+  padding: 25px 20px;
+}
+
+/* ===========================
+   下層ページではフッターの
+   closeボタンを非表示
+   =========================== */
+
+body:not(:has(.hero)) .footer-close-area {
+  display: none;
+}
+
+body:not(:has(.hero)) .footer-logo-area {
+  padding: 25px 0 0;
+}
+
+body:not(:has(.hero)) .banner-icon-area {
+  z-index: 6;
+}
+
+/* ===========================
+  下層ページでは hero-icon 非表示
+  =========================== */
+body:not(:has(.hero)) .page-sub .hero-icon-area {
+  display: none;
+}

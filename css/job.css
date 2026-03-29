@@ -1,0 +1,573 @@
+/* =========================== job ページ専用 =========================== */
+
+/* 背景画像 */
+.sub-main-inner::before {
+  background-image: url("../images/job-bg.jpg");
+  background-size: cover;
+  background-position: center top 10%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Concept文章だけ */
+.shop-concept {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* ===========================
+   求人情報エリア
+=========================== */
+.job-wrapper {
+  margin-top: 10px;
+}
+
+.job-role {
+  margin-bottom: 10px;
+}
+
+.job-role-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.job-tabs {
+  display: flex;
+  margin-bottom: -1px; /* ←これ重要 */
+  justify-content: flex-start;
+}
+
+.job-tab {
+  padding: 8px 18px;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 8px 8px 0 0;
+  transition: 0.3s;
+}
+
+.job-tab:hover {
+  background: #e6e6e6;
+}
+
+.job-tab.active {
+  background: #f3be4b;
+  color: #fff;
+}
+
+.job-content {
+  display: none;
+}
+
+.job-content.active {
+  display: block;
+}
+
+.job-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.job-table th,
+.job-table td {
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: left;
+}
+
+.job-table th {
+  background: #f7f7f7;
+  width: 35%;
+}
+
+.job-link {
+  text-decoration: underline;
+  color: #333;
+  transition: 0.3s;
+}
+
+.job-link:hover {
+  opacity: 0.6;
+}
+
+/* ===========================
+   求人情報詳細ボタン
+=========================== */
+.job-pdf-button {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.pdf-btn {
+  display: inline-block;
+  padding: 14px 50px;
+  background: #f3be4b;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.pdf-btn:hover {
+  background: #d99c1f;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   新人教育プログラムエリア
+========================= */
+
+.training-tabs {
+  margin-top: 10px;
+}
+
+.training-tab-buttons {
+  display: flex;
+  margin-bottom: -1px; /* ←これ重要 */
+  justify-content: space-between;
+}
+
+.training-tab {
+  padding: 8px 18px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: 0.3s;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.training-tab.active {
+  background: #f8c24e;
+  color: #fff;
+}
+
+.training-tab:hover {
+  background: #f1b73c;
+}
+
+.training-content-area {
+  display: none;
+  margin-top: 20px;
+}
+
+.training-content-area.active {
+  display: block;
+}
+
+.training-detail-item {
+  margin: 40px 0 20px 0;
+}
+
+.training-detail-item h4 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.training-detail-block {
+  display: block;
+}
+
+.training-detail-image img {
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.training-detail-block p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================
+   キャリア＆収入モデル エリア
+========================= */
+
+.career-tabs {
+  margin-top: 10px;
+}
+
+.career-tab-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.career-tab {
+  padding: 8px 18px;
+  border: none;
+  background: #eee;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.career-tab.active {
+  background: #f8c24e;
+  color: #fff;
+}
+
+.career-content {
+  display: none;
+}
+
+.career-content.active {
+  display: block;
+}
+
+/* スマホ */
+
+.career-role-title {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.career-image img {
+  width: 100%;
+  max-width: 280px;
+  display: block;
+  margin: 0 auto 25px;
+  border-radius: 12px;
+}
+
+.career-timeline {
+  text-align: left;
+}
+
+.career-step {
+  margin-bottom: 25px;
+}
+
+.career-step h5 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.career-income {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f3be4b;
+  margin-bottom: 5px;
+}
+
+.career-future {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+  font-weight: 500;
+}
+
+/* ===========================
+   １日の流れエリア
+=========================== */
+
+/* 1日の流れエリア */
+
+.day-flow {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flow-item {
+  margin-bottom: 20px;
+}
+
+.flow-item h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.flow-item img {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.flow-item p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.flow-arrow {
+  font-size: 28px;
+  margin: 15px 0;
+  color: #999;
+}
+
+/* ===========================
+   福利厚生エリア
+=========================== */
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+}
+
+.benefit-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* テキスト */
+
+.benefit-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.benefit-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* ===========================
+   Q&A エリア
+=========================== */
+
+.qa-list {
+  border-top: 1px solid #ddd;
+}
+
+.qa-item {
+  border-bottom: 1px solid #ddd;
+}
+
+/* 質問 */
+.qa-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 16px 15px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* アイコン */
+.qa-icon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* 回答（閉じてる状態） */
+.qa-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  font-size: 13px;
+  line-height: 1.6;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
+}
+
+/* 開いてる状態 */
+.qa-item.active .qa-answer {
+  max-height: 200px; /* 内容に対して余裕もたせる */
+  padding: 0 15px 15px;
+}
+
+/* アイコン回転 */
+.qa-item.active .qa-icon {
+  transform: rotate(180deg);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  /* ===========================
+   求人情報エリア
+=========================== */
+  .job-role-title {
+    font-size: 22px;
+  }
+  .job-table {
+    font-size: 15px;
+  }
+
+  /* ===========================
+   求人情報詳細ボタン
+=========================== */
+  .pdf-btn {
+    padding: 14px 110px;
+  }
+
+  /* ===========================
+   新人教育プログラムエリア
+=========================== */
+  .training-tab-buttons {
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .training-detail-item h4 {
+    font-size: 17px;
+    margin-bottom: 25px;
+  }
+
+  .training-detail-block {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .training-detail-image {
+    width: 45%;
+  }
+
+  .training-detail-block P {
+    width: 55%;
+    font-size: 15px;
+  }
+
+  .training-detail-image img {
+    margin-bottom: 0;
+  }
+
+  /* =========================
+   キャリア＆収入モデル エリア
+========================= */
+
+  .career-tab-buttons {
+    justify-content: center;
+    gap: 30px;
+  }
+  .career-flex {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .career-image {
+    width: 40%;
+  }
+
+  .career-image img {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .career-timeline {
+    width: 60%;
+  }
+
+  .career-role-title {
+    font-size: 20px;
+  }
+
+  .career-income {
+    font-size: 20px;
+  }
+
+  /* ===========================
+   福利厚生エリア
+=========================== */
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+/* ===========================
+   Q&A エリア
+=========================== */
+
+    .qa-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: none;
+  }
+
+  .qa-item {
+    width: calc(50% - 10px);
+    border: 1px solid #ddd;
+  }
+}
+
+/* PC */
+@media (min-width: 1024px) {
+  /* ===========================
+   求人情報エリア
+=========================== */
+  .job-role-title {
+    font-size: 24px;
+  }
+  .job-table {
+    font-size: 16px;
+  }
+
+  /* ===========================
+   新人教育プログラムエリア
+=========================== */
+
+  .training-detail-image {
+    width: 40%;
+  }
+
+  .training-detail-item h4 {
+    font-size: 18px;
+  }
+
+  .training-detail-block p {
+    width: 60%;
+    /* font-size: 16px; */
+  }
+
+  /* =========================
+   キャリア＆収入モデル エリア
+========================= */
+  .career-role-title {
+    font-size: 22px;
+  }
+
+  .career-income {
+    font-size: 22px;
+  }
+
+}
